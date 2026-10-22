@@ -10,15 +10,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap">
 <style>
-/* Layout: спокойная редакционная вёрстка, узкая колонка текста, широкие блоки направлений; 5 страниц в одном файле */
+/* Палитра: слоновая кость и глубокий винно-сливовый акцент — в тон белой рубашке и тёмным волосам на фото.
+   Layout: спокойная редакционная вёрстка, узкая колонка текста, широкие блоки направлений; 5 страниц в одном файле */
 :root {
-  --bg: #F4F5F2;
+  --bg: #F7F4F2;
   --surface: #FFFFFF;
-  --tint: #E5ECEA;
-  --ink: #1C2426;
-  --muted: #5A6567;
-  --line: #D6DCD9;
-  --accent: #1F5560;
+  --tint: #F0E7E6;
+  --ink: #2A2224;
+  --muted: #6B5E61;
+  --line: #E3D8D7;
+  --accent: #7A3A4F;
   --accent-ink: #FFFFFF;
   --note: #F3E7C9;
   --note-ink: #5A4512;
@@ -29,14 +30,14 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121718; --surface: #1A2123; --tint: #1E2B2D; --ink: #E6ECEA; --muted: #9DA9AA;
-    --line: #2C3739; --accent: #82B9C1; --accent-ink: #0E1A1C; --note: #3A3220; --note-ink: #F0DDB0;
+    --bg: #181315; --surface: #211A1C; --tint: #2A2023; --ink: #EFE7E8; --muted: #B3A4A8;
+    --line: #3A2E31; --accent: #D79BAE; --accent-ink: #1F1216; --note: #3A3220; --note-ink: #F0DDB0;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #121718; --surface: #1A2123; --tint: #1E2B2D; --ink: #E6ECEA; --muted: #9DA9AA;
-  --line: #2C3739; --accent: #82B9C1; --accent-ink: #0E1A1C; --note: #3A3220; --note-ink: #F0DDB0;
+  --bg: #181315; --surface: #211A1C; --tint: #2A2023; --ink: #EFE7E8; --muted: #B3A4A8;
+    --line: #3A2E31; --accent: #D79BAE; --accent-ink: #1F1216; --note: #3A3220; --note-ink: #F0DDB0;
   color-scheme: dark;
 }
 
@@ -127,14 +128,14 @@ section.tint { background: var(--tint); }
 .frame { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: .9rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
 .frame span::before { content: "◦ "; color: var(--accent); }
 .photo {
-  aspect-ratio: 4 / 5; max-width: 100%; width: 100%; border-radius: 4px 120px 4px 4px;
+  aspect-ratio: 3 / 4; max-width: 100%; width: 100%; border-radius: 4px 120px 4px 4px;
   background: var(--tint); border: 1px solid var(--line); overflow: hidden; position: relative;
 }
-.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 30%; display: block; }
+.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
 .photo .cap { position: absolute; left: 10px; bottom: 10px; font-size: .75rem; background: var(--note); color: var(--note-ink); padding: 2px 8px; border-radius: 3px; }
 @media (max-width: 760px) {
   .hero .wrap { grid-template-columns: 1fr; }
-  .hero .photo { aspect-ratio: 1; max-width: 360px; border-radius: 4px 80px 4px 4px; }
+  .hero .photo { aspect-ratio: 3 / 4; max-width: 340px; border-radius: 4px 80px 4px 4px; }
 }
 
 .requests { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
@@ -270,8 +271,8 @@ footer.site a { color: var(--muted); }
 
 <div class="proto">
   <div class="wrap">
-    <strong>Прототип, версия 3.</strong>
-    <span>Жёлтым отмечено то, что ещё нужно уточнить: заголовок, почта, условия первой встречи, документы.</span>
+    <strong>Прототип, версия 4.</strong>
+    <span>Жёлтым отмечено то, что ещё нужно уточнить. Фото временное: для сайта нужен снимок при дневном свете.</span>
   </div>
 </div>
 
@@ -314,7 +315,7 @@ footer.site a { color: var(--muted); }
           <span>Знакомство 30 минут, <i class="ph">бесплатно?</i></span>
         </div>
       </div>
-      <div class="photo"><span class="cap">Место для фото</span></div>
+      <div class="photo"><img src="foto.jpg" alt="Екатерина Михальченко"></div>
     </div>
   </section>
 
@@ -507,7 +508,7 @@ footer.site a { color: var(--muted); }
 
   <section class="tint about-short">
     <div class="wrap">
-      <div class="photo"><span class="cap">Место для фото</span></div>
+      <div class="photo"><img src="foto.jpg" alt="Екатерина Михальченко"></div>
       <div class="text">
         <p class="eyebrow">Обо мне</p>
         <h2>Екатерина Михальченко</h2>
@@ -762,7 +763,7 @@ footer.site a { color: var(--muted); }
 
   <section class="about-short" style="padding-top: 0">
     <div class="wrap">
-      <div class="photo"><span class="cap">Место для фото</span></div>
+      <div class="photo"><img src="foto.jpg" alt="Екатерина Михальченко"></div>
       <div class="text">
         <h2>Екатерина Михальченко</h2>
         <p class="lead">Больше 20 лет я работала в бизнесе. Я знаю организацию изнутри: как устроены коллектив и команда, что значит отвечать за результат и жить под давлением сроков.</p>
