@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap">
 <style>
-/* Layout: спокойная редакционная вёрстка, узкая колонка текста, широкие блоки направлений; 4 страницы в одном файле */
+/* Layout: спокойная редакционная вёрстка, узкая колонка текста, широкие блоки направлений; 5 страниц в одном файле */
 :root {
   --bg: #F4F5F2;
   --surface: #FFFFFF;
@@ -57,28 +57,18 @@ body::before {
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.2; }
-h1 { font-size: clamp(2rem, 5vw, 3.4rem); }
+h1 { font-size: clamp(2rem, 5vw, 3.3rem); }
 h2 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); }
-h3 { font-size: 1.3rem; }
+h3 { font-size: 1.25rem; }
 p { margin: 0; }
 a { color: var(--accent); }
-.eyebrow {
-  font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--muted); font-weight: 500;
-}
+.eyebrow { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
 .lead { font-size: 1.15rem; color: var(--muted); max-width: var(--text); }
-.ph { /* заглушка, которую нужно заменить */
-  background: var(--note); color: var(--note-ink); padding: 0 .3em; border-radius: 3px;
-  font-style: normal; white-space: nowrap;
-}
+.ph { background: var(--note); color: var(--note-ink); padding: 0 .3em; border-radius: 3px; font-style: normal; }
 
-/* Плашка прототипа */
-.proto {
-  background: var(--note); color: var(--note-ink); font-size: .85rem;
-}
+.proto { background: var(--note); color: var(--note-ink); font-size: .85rem; }
 .proto .wrap { padding-block: 8px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 
-/* Шапка */
 header.site {
   position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
   background: color-mix(in srgb, var(--bg) 92%, transparent);
@@ -88,7 +78,7 @@ header.site .wrap { display: flex; align-items: center; gap: 24px; padding-block
 .brand { text-decoration: none; color: var(--ink); display: grid; line-height: 1.2; }
 .brand b { font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; }
 .brand span { font-size: .75rem; color: var(--muted); letter-spacing: .04em; }
-nav.main { margin-left: auto; display: flex; gap: 22px; align-items: center; }
+nav.main { margin-left: auto; display: flex; gap: 20px; align-items: center; }
 nav.main a { color: var(--ink); text-decoration: none; font-size: .95rem; padding-block: 4px; border-bottom: 1.5px solid transparent; }
 nav.main a:hover, nav.main a[aria-current="page"] { border-color: var(--accent); }
 .menu-btn { display: none; margin-left: auto; }
@@ -104,7 +94,7 @@ nav.main a:hover, nav.main a[aria-current="page"] { border-color: var(--accent);
 .btn.small { padding: 8px 16px; font-size: .9rem; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-@media (max-width: 860px) {
+@media (max-width: 920px) {
   nav.main { display: none; position: absolute; left: 0; right: 0; top: 100%;
     background: var(--bg); border-bottom: 1px solid var(--line);
     flex-direction: column; align-items: stretch; gap: 0;
@@ -115,41 +105,53 @@ nav.main a:hover, nav.main a[aria-current="page"] { border-color: var(--accent);
   .menu-btn { display: inline-flex; }
 }
 
-/* Секции */
+/* Кнопка записи, закреплённая внизу на телефоне */
+.sticky-cta { display: none; }
+@media (max-width: 680px) {
+  .sticky-cta {
+    display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 6;
+    background: var(--bg); border-top: 1px solid var(--line);
+    padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  }
+  .sticky-cta .btn { flex: 1; padding: 12px 10px; }
+  footer.site { padding-bottom: 96px; }
+}
+
 section { padding-block: clamp(56px, 8vw, 96px); }
 section.tint { background: var(--tint); }
 .section-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 46rem; }
 
-/* Первый экран */
 .hero .wrap { display: grid; grid-template-columns: 1.25fr .85fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 .hero-text { display: grid; gap: 22px; min-width: 0; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.frame {
-  display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: .9rem; color: var(--muted);
-  border-top: 1px solid var(--line); padding-top: 16px;
-}
+.frame { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: .9rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
 .frame span::before { content: "◦ "; color: var(--accent); }
 .photo {
-  aspect-ratio: 4 / 5; max-width: 100%; border-radius: 4px 120px 4px 4px;
-  background:
-    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%),
-    var(--tint);
-  border: 1px solid var(--line);
-  display: grid; place-items: end start; padding: 20px; color: var(--muted); font-size: .85rem;
+  aspect-ratio: 4 / 5; max-width: 100%; width: 100%; border-radius: 4px 120px 4px 4px;
+  background: var(--tint); border: 1px solid var(--line); overflow: hidden; position: relative;
 }
+.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 30%; display: block; }
+.photo .cap { position: absolute; left: 10px; bottom: 10px; font-size: .75rem; background: var(--note); color: var(--note-ink); padding: 2px 8px; border-radius: 3px; }
 @media (max-width: 760px) {
   .hero .wrap { grid-template-columns: 1fr; }
-  .photo { aspect-ratio: 5 / 4; border-radius: 4px 80px 4px 4px; }
+  .hero .photo { aspect-ratio: 1; max-width: 360px; border-radius: 4px 80px 4px 4px; }
 }
 
-/* Запросы */
 .requests { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .request { background: var(--surface); padding: 28px; display: grid; gap: 10px; align-content: start; }
-.request q { font-family: var(--font-display); font-size: 1.2rem; quotes: "«" "»"; }
+.request q { font-family: var(--font-display); font-size: 1.15rem; quotes: "«" "»"; }
 .request p { color: var(--muted); }
+.request.wide { grid-column: 1 / -1; }
 @media (max-width: 680px) { .requests { grid-template-columns: 1fr; } }
 
-/* Подход */
+.change { display: grid; gap: 0; max-width: 52rem; }
+.change div { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; padding-block: 16px; border-top: 1px solid var(--line); }
+.change div:last-child { border-bottom: 1px solid var(--line); }
+.change .was { color: var(--muted); }
+.change .arrow { color: var(--accent); font-size: 1.2rem; }
+.change .now { font-weight: 500; }
+@media (max-width: 560px) { .change div { grid-template-columns: 1fr; gap: 4px; } .change .arrow { display: none; } .change .now::before { content: "→ "; color: var(--accent); } }
+
 .approach { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 .approach div { display: grid; gap: 10px; align-content: start; border-top: 2px solid var(--accent); padding-top: 18px; }
 .approach p { color: var(--muted); }
@@ -161,57 +163,54 @@ td:first-child { font-weight: 500; }
 tr.me td { background: var(--tint); }
 @media (max-width: 760px) { .approach { grid-template-columns: 1fr; } }
 
-/* Направления */
 .directions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .direction {
   background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
-  padding: 28px; display: grid; gap: 14px; grid-template-rows: auto auto 1fr auto;
+  padding: 26px; display: grid; gap: 12px; grid-template-rows: auto auto 1fr auto;
   text-decoration: none; color: var(--ink); transition: border-color .15s ease;
 }
 .direction:hover { border-color: var(--accent); }
-.direction ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: grid; gap: 4px; }
-.direction .more { color: var(--accent); font-weight: 500; }
-@media (max-width: 860px) { .directions { grid-template-columns: 1fr; } }
+.direction p { color: var(--muted); font-size: .95rem; }
+.direction .more { color: var(--accent); font-weight: 500; font-size: .95rem; }
+@media (max-width: 860px) { .directions { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .directions { grid-template-columns: 1fr; } }
 
-/* Шаги */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: s; }
 .steps li { counter-increment: s; display: grid; gap: 8px; align-content: start; }
-.steps li::before {
-  content: counter(s); font-family: var(--font-display); font-size: 2rem; color: var(--accent);
-  line-height: 1;
-}
+.steps li::before { content: counter(s); font-family: var(--font-display); font-size: 2rem; color: var(--accent); line-height: 1; }
 .steps p { color: var(--muted); font-size: .95rem; }
 @media (max-width: 860px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
 
-/* Обо мне кратко */
+.setting { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 40px; }
+.setting div { background: var(--surface); padding: 22px; display: grid; gap: 4px; align-content: start; }
+.setting b { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; }
+.setting span { color: var(--muted); font-size: .9rem; }
+@media (max-width: 760px) { .setting { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 .about-short .wrap { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-.about-short .photo { aspect-ratio: 1; border-radius: 50%; place-items: center; text-align: center; }
+.about-short .photo { aspect-ratio: 1; border-radius: 50%; }
 .about-short .text { display: grid; gap: 18px; min-width: 0; }
+.creds { display: grid; gap: 12px; }
 .credential { display: grid; gap: 2px; padding-left: 16px; border-left: 2px solid var(--accent); }
-.credential small { color: var(--muted); font-size: .85rem; }
+.credential small { color: var(--muted); font-size: .88rem; }
 @media (max-width: 760px) { .about-short .wrap { grid-template-columns: 1fr; } .about-short .photo { max-width: 220px; } }
 
-/* Форма */
 .cta .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); }
 .cta-text { display: grid; gap: 16px; align-content: start; min-width: 0; }
 form.lead-form { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 28px; display: grid; gap: 16px; min-width: 0; }
 label { display: grid; gap: 6px; font-size: .9rem; font-weight: 500; }
-input, select, textarea {
-  font: 400 1rem var(--font-body); color: var(--ink); background: var(--bg);
-  border: 1px solid var(--line); border-radius: 6px; padding: 11px 12px; width: 100%;
-}
+input, select, textarea { font: 400 1rem var(--font-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 11px 12px; width: 100%; }
 textarea { min-height: 96px; resize: vertical; }
 .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: .85rem; color: var(--muted); }
 .check input { width: auto; margin-top: 4px; }
 .form-msg { font-size: .9rem; background: var(--tint); padding: 12px 14px; border-radius: 6px; }
-.contacts-list { display: grid; gap: 10px; }
+.contacts-list { display: grid; gap: 10px; margin: 0; }
 .contacts-list div { display: flex; gap: 12px; flex-wrap: wrap; align-items: baseline; }
 .contacts-list dt { color: var(--muted); font-size: .85rem; min-width: 84px; }
-.contacts-list dd { margin: 0; }
+.contacts-list dd { margin: 0; user-select: all; }
 @media (max-width: 760px) { .cta .wrap { grid-template-columns: 1fr; } }
 
-/* Внутренние страницы */
 .page-hero { padding-block: clamp(48px, 7vw, 80px) clamp(32px, 4vw, 48px); }
 .page-hero .wrap { display: grid; gap: 18px; }
 .crumbs { font-size: .85rem; color: var(--muted); }
@@ -223,18 +222,18 @@ textarea { min-height: 96px; resize: vertical; }
 .detail ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
 @media (max-width: 760px) { .detail { grid-template-columns: 1fr; gap: 12px; } }
 
-.setting { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.setting div { background: var(--surface); padding: 22px; display: grid; gap: 4px; }
-.setting b { font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; }
-.setting span { color: var(--muted); font-size: .9rem; }
-@media (max-width: 760px) { .setting { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 32px; list-style: none; margin: 0; padding: 0; }
+.quotes li { font-family: var(--font-display); font-size: 1.05rem; padding: 12px 0; border-bottom: 1px solid var(--line); }
+@media (max-width: 680px) { .quotes { grid-template-columns: 1fr; } }
 
-.prices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-.price { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 26px; display: grid; gap: 10px; align-content: start; }
-.price.featured { border-color: var(--accent); }
-.price .sum { font-family: var(--font-display); font-size: 1.6rem; }
-.price p { color: var(--muted); font-size: .95rem; }
-@media (max-width: 860px) { .prices { grid-template-columns: 1fr; } }
+.areas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.area { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 22px; display: grid; gap: 8px; align-content: start; }
+.area p { color: var(--muted); font-size: .95rem; }
+@media (max-width: 860px) { .areas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .areas { grid-template-columns: 1fr; } }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.chips li { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 14px; font-size: .95rem; }
 
 .faq { display: grid; max-width: 48rem; }
 .faq details { border-top: 1px solid var(--line); padding-block: 18px; }
@@ -245,25 +244,19 @@ textarea { min-height: 96px; resize: vertical; }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { margin-top: 12px; color: var(--muted); max-width: var(--text); }
 
-.biz-block { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); }
-.biz-block > div { display: grid; gap: 16px; align-content: start; min-width: 0; }
-.biz-block ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; color: var(--muted); }
 .biz-tag { display: inline-block; justify-self: start; font-size: .8rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
-.biz-tag.soon { border-color: var(--note-ink); color: var(--note-ink); background: var(--note); }
-@media (max-width: 760px) { .biz-block { grid-template-columns: 1fr; } }
 
 .principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; }
 .principles div { display: grid; gap: 8px; }
 .principles p { color: var(--muted); }
 @media (max-width: 680px) { .principles { grid-template-columns: 1fr; } }
 
-.timeline { display: grid; gap: 0; max-width: 48rem; }
+.timeline { display: grid; max-width: 48rem; }
 .timeline div { display: grid; grid-template-columns: 8rem 1fr; gap: 20px; padding-block: 16px; border-top: 1px solid var(--line); }
 .timeline div:last-child { border-bottom: 1px solid var(--line); }
 .timeline span { color: var(--muted); font-variant-numeric: tabular-nums; }
 @media (max-width: 520px) { .timeline div { grid-template-columns: 1fr; gap: 4px; } }
 
-/* Подвал */
 footer.site { border-top: 1px solid var(--line); padding-block: 40px; font-size: .9rem; color: var(--muted); }
 footer.site .wrap { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 28px; }
 footer.site h4 { margin: 0 0 10px; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; color: var(--ink); }
@@ -274,26 +267,28 @@ footer.site a { color: var(--muted); }
 </head>
 <body>
 
+
 <div class="proto">
   <div class="wrap">
-    <strong>Прототип.</strong>
-    <span>Жёлтым отмечены места, куда нужно вставить её данные: имя, фото, цены, контакты.</span>
+    <strong>Прототип, версия 3.</strong>
+    <span>Жёлтым отмечено то, что ещё нужно уточнить: заголовок, почта, условия первой встречи, документы.</span>
   </div>
 </div>
 
 <header class="site">
   <div class="wrap">
     <a class="brand" href="#home">
-      <b>Имя Фамилия</b>
-      <span>Психоаналитическое бизнес-консультирование</span>
+      <b>Екатерина Михальченко</b>
+      <span>Психолог-консультант · психоаналитический подход</span>
     </a>
     <button class="btn ghost small menu-btn" id="menu-btn" aria-expanded="false" aria-controls="main-nav">Меню</button>
     <nav class="main" id="main-nav">
       <a href="#home" data-link="home">Главная</a>
-      <a href="#individual" data-link="individual">Индивидуально</a>
-      <a href="#business" data-link="business">Бизнесу</a>
+      <a href="#individual" data-link="individual">Консультации</a>
+      <a href="#career" data-link="career">Карьера и менторинг</a>
+      <a href="#business" data-link="business">Группы и бизнес</a>
       <a href="#about" data-link="about">Обо мне</a>
-      <a class="btn small" href="#contact" data-cta>Записаться</a>
+      <a class="btn small" href="#contact">Записаться</a>
     </nav>
   </div>
 </header>
@@ -305,20 +300,21 @@ footer.site a { color: var(--muted); }
   <section class="hero">
     <div class="wrap">
       <div class="hero-text">
-        <p class="eyebrow">Психоаналитическое бизнес-консультирование</p>
-        <h1>Когда работа перестала радовать, а&nbsp;причину не&nbsp;видно</h1>
-        <p class="lead">Помогаю руководителям, специалистам и собственникам бизнеса разобраться с выгоранием, потерей интереса и поиском своего дела. Работаю с тем, что стоит за усталостью, а не только с её признаками.</p>
+        <p class="eyebrow">Екатерина Михальченко</p>
+        <h1>Психоаналитический психолог с&nbsp;20-летним опытом работы в&nbsp;бизнесе</h1>
+        <p class="lead">Психолог-консультант, психоаналитический бизнес-коуч, карьерный консультант и&nbsp;ментор.</p>
+        <p class="lead">Помогаю людям и компаниям разобраться, что происходит в работе и карьере, и менять это осознанно. Выгорание, потеря интереса, поиск своего дела, отношения с коллективом и руководителем.</p>
         <div class="hero-actions">
-          <a class="btn" href="#contact" data-cta>Записаться на первую встречу</a>
-          <a class="btn ghost" href="#business">Задача для компании</a>
+          <a class="btn" href="#contact">Записаться на знакомство</a>
+          <a class="btn ghost" href="https://t.me/EktrMkh" target="_blank" rel="noopener">Написать в Telegram</a>
         </div>
         <div class="frame">
-          <span>Первая встреча: 30 минут</span>
-          <span>Онлайн и очно, <i class="ph">город</i></span>
-          <span>Конфиденциально</span>
+          <span>Магистратура НИУ ВШЭ</span>
+          <span>Онлайн и очно, Москва, Мясницкая</span>
+          <span>Знакомство 30 минут, <i class="ph">бесплатно?</i></span>
         </div>
       </div>
-      <div class="photo" role="img" aria-label="Место для фотографии">Фото: живой портрет в рабочей обстановке</div>
+      <div class="photo"><span class="cap">Место для фото</span></div>
     </div>
   </section>
 
@@ -336,7 +332,7 @@ footer.site a { color: var(--muted); }
         </div>
         <div class="request">
           <p class="eyebrow">Утрата интереса к работе</p>
-          <q>Снаружи всё в порядке, должность, доход. А внутри пусто, и я не понимаю почему.</q>
+          <q>Снаружи всё в порядке: должность, доход. А внутри пусто, и я не понимаю почему.</q>
           <p>Ищем, в какой момент работа перестала быть своей и что с этим делать.</p>
         </div>
         <div class="request">
@@ -345,9 +341,14 @@ footer.site a { color: var(--muted); }
           <p>Отделяем свои желания от чужих ожиданий и проверяем варианты на реальность.</p>
         </div>
         <div class="request">
-          <p class="eyebrow">Профессиональное развитие</p>
-          <q>Новая роль, смена сферы или уход из найма. Нужно разобраться, прежде чем решать.</q>
-          <p>Готовимся к переходу и разбираем, что мешает принять решение.</p>
+          <p class="eyebrow">Карьера и развитие</p>
+          <q>Работаю пять лет, а меня не повышают. Достиг потолка и не вижу перспектив.</q>
+          <p>Разбираемся, где ваше место в организации и что мешает расти.</p>
+        </div>
+        <div class="request wide">
+          <p class="eyebrow">Коллектив и руководитель</p>
+          <q>Конфликты на работе забирают все силы. Объясняю, а меня не понимают.</q>
+          <p>Смотрим, какие сценарии повторяются в отношениях с командой и начальством, и как выйти из них.</p>
         </div>
       </div>
     </div>
@@ -356,22 +357,71 @@ footer.site a { color: var(--muted); }
   <section>
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Подход</p>
-        <h2>Чем этот подход отличается</h2>
-        <p class="lead">Советы и техники работают, пока не упираются в то, чего человек сам в себе не замечает. Психоаналитический подход помогает это увидеть.</p>
+        <p class="eyebrow">Запросы</p>
+        <h2>С чем я работаю</h2>
+        <p class="lead">Некоторые ситуации на работе вызывают тяжёлые переживания. Справляться с ними в одиночку не обязательно.</p>
+      </div>
+      <div class="principles">
+        <div>
+          <h3>Личные запросы</h3>
+          <ul>
+            <li>Выгорание, прокрастинация, потеря интереса к работе</li>
+            <li>Тревога в период перемен и неопределённости</li>
+            <li>Адаптация на новом месте и в новой роли</li>
+            <li>Отношения с руководителем и коллегами</li>
+            <li>Карьерный «потолок», повышение, рост</li>
+            <li>Поиск призвания и своего дела</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Запросы бизнеса</h3>
+          <ul>
+            <li>Сопровождение руководителей и сотрудников в период изменений</li>
+            <li>Конфликты в команде и между подразделениями</li>
+            <li>Переход сотрудника в роль руководителя</li>
+            <li>Смена руководства и ключевых людей</li>
+            <li>Стресс и выгорание в команде</li>
+            <li>Сложности с делегированием при перегрузке</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Результат</p>
+        <h2>Что изменится</h2>
+      </div>
+      <div class="change">
+        <div><span class="was">Работаю на автопилоте</span><span class="arrow">→</span><span class="now">Понимаю, что мне важно, и выбираю осознанно</span></div>
+        <div><span class="was">Откладываю решение месяцами</span><span class="arrow">→</span><span class="now">Вижу, что тормозило, и делаю следующий шаг</span></div>
+        <div><span class="was">Конфликт с руководителем выматывает</span><span class="arrow">→</span><span class="now">Понимаю, что происходит, и выстраиваю отношения по-новому</span></div>
+        <div><span class="was">Не вижу, куда расти</span><span class="arrow">→</span><span class="now">Есть понятная цель и план</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Почему я</p>
+        <h2>Бизнес изнутри и психоанализ</h2>
+        <p class="lead">Я больше 20 лет работала в организациях и знаю, как устроены коллективы, иерархия и давление сроков. Психоаналитическое образование помогает увидеть то, что человек сам в себе не замечает.</p>
       </div>
       <div class="approach">
         <div>
+          <h3>Понимаю ваш мир</h3>
+          <p>Не нужно объяснять, что такое планёрка в девять вечера или новый начальник. Я сама через это проходила.</p>
+        </div>
+        <div>
           <h3>Смотрю глубже симптома</h3>
-          <p>Выгорание и потеря интереса часто повторяют старые сценарии. Когда сценарий становится виден, появляется выбор.</p>
+          <p>Выгорание, конфликты и застой в карьере часто повторяют старые сценарии. Когда сценарий виден, появляется выбор.</p>
         </div>
         <div>
-          <h3>Держу в фокусе бизнес</h3>
-          <p>Работаем с вашими реальными задачами: решениями, ролью, командой, карьерой. Без ухода в абстрактные разговоры.</p>
-        </div>
-        <div>
-          <h3>Даю спокойное пространство</h3>
-          <p>Ровная рамка встреч, конфиденциальность и отсутствие оценок. Здесь можно говорить то, что не скажешь на работе.</p>
+          <h3>Держу фокус на деле</h3>
+          <p>Работаем с вашими реальными задачами: решениями, ролью, отношениями в команде, карьерой.</p>
         </div>
       </div>
       <div class="compare">
@@ -379,8 +429,8 @@ footer.site a { color: var(--muted); }
           <thead><tr><th>Кто</th><th>Что делает</th><th>Когда подходит</th></tr></thead>
           <tbody>
             <tr><td>Бизнес-коуч</td><td>Помогает поставить цель и дойти до неё</td><td>Цель ясна, нужен план и темп</td></tr>
-            <tr><td>Психотерапевт</td><td>Лечит психологические расстройства</td><td>Есть клинические симптомы</td></tr>
-            <tr class="me"><td>Психоаналитический бизнес-консультант</td><td>Помогает понять, что на самом деле мешает в работе, и найти решение</td><td>Цель не ясна, или вы знаете, что делать, но не делаете</td></tr>
+            <tr><td>Психотерапевт, психиатр</td><td>Ставит диагнозы, лечит травмы и расстройства</td><td>Есть клинические симптомы</td></tr>
+            <tr class="me"><td>Психолог-консультант с психоаналитическим подходом</td><td>Помогает понять, что на самом деле мешает в работе, и найти решение</td><td>Цель не ясна, или вы знаете, что делать, но не делаете</td></tr>
           </tbody>
         </table>
       </div>
@@ -396,20 +446,38 @@ footer.site a { color: var(--muted); }
       <div class="directions">
         <a class="direction" href="#individual">
           <p class="eyebrow">Лично вам</p>
-          <h3>Индивидуальная работа</h3>
-          <ul><li>Выгорание и усталость</li><li>Утрата интереса</li><li>Поиск призвания</li><li>Профессиональное развитие</li></ul>
+          <h3>Консультации психолога</h3>
+          <p>Выгорание, потеря интереса, поиск себя, трудности в отношениях на работе.</p>
           <span class="more">Подробнее →</span>
         </a>
-        <a class="direction" href="#individual-mentoring">
-          <p class="eyebrow">В новой роли</p>
+        <a class="direction" href="#individual">
+          <p class="eyebrow">Руководителям</p>
+          <h3>Психоаналитический бизнес-коучинг</h3>
+          <p>Решения, роль, лидерство, работа с командой и давлением.</p>
+          <span class="more">Подробнее →</span>
+        </a>
+        <a class="direction" href="#career">
+          <p class="eyebrow">Карьера</p>
+          <h3>Карьерное консультирование</h3>
+          <p>Потолок, повышение, смена профессии, кризис профессиональной идентичности.</p>
+          <span class="more">Подробнее →</span>
+        </a>
+        <a class="direction" href="#career-mentoring">
+          <p class="eyebrow">Новая роль</p>
           <h3>Менторинг</h3>
-          <ul><li>Первые месяцы в должности</li><li>Переход в руководители</li><li>Смена сферы</li></ul>
+          <p>Новым руководителям, сотрудникам и тем, кто меняет профессию.</p>
           <span class="more">Подробнее →</span>
         </a>
         <a class="direction" href="#business">
-          <p class="eyebrow">Бизнесу</p>
-          <h3>Собственникам, компаниям, группам</h3>
-          <ul><li>Работа с собственником</li><li>Руководители и команды</li><li>Групповые программы</li></ul>
+          <p class="eyebrow">Вместе с другими</p>
+          <h3>Группы</h3>
+          <p>Небольшие группы с похожими запросами.</p>
+          <span class="more">Подробнее →</span>
+        </a>
+        <a class="direction" href="#business">
+          <p class="eyebrow">Компаниям</p>
+          <h3>Лидеры и команды</h3>
+          <p>Работа с руководителями и командами по заказу компании.</p>
           <span class="more">Подробнее →</span>
         </a>
       </div>
@@ -423,148 +491,33 @@ footer.site a { color: var(--muted); }
         <h2>От заявки до первых изменений</h2>
       </div>
       <ol class="steps">
-        <li><h3>Заявка</h3><p>Оставляете заявку на сайте или пишете в Telegram. Отвечаю в течение <i class="ph">1 дня</i>.</p></li>
-        <li><h3>Знакомство</h3><p>Встреча на 30 минут. Вы рассказываете о ситуации, я объясняю, чем могу помочь.</p></li>
-        <li><h3>Договорённость</h3><p>Согласуем формат, частоту и примерное число встреч. Подписываем договор.</p></li>
+        <li><h3>Заявка</h3><p>Оставляете заявку на сайте или пишете в Telegram или WhatsApp.</p></li>
+        <li><h3>Знакомство</h3><p>Встреча на 30 минут: вы рассказываете о ситуации, я объясняю, чем могу помочь.</p></li>
+        <li><h3>Договорённость</h3><p>Согласуем формат и частоту. Условия закреплены в договоре-оферте.</p></li>
         <li><h3>Регулярные встречи</h3><p>Работаем в постоянной рамке: одно время, одна длительность, полная конфиденциальность.</p></li>
       </ol>
+      <div class="setting">
+        <div><b>50 минут</b><span>длительность сессии</span></div>
+        <div><b>До 2 раз в неделю</b><span>консультации психолога</span></div>
+        <div><b>1 раз в неделю</b><span>бизнес-консультирование</span></div>
+        <div><b>Оплата после сессии</b><span>без пакетов и предоплаты</span></div>
+      </div>
     </div>
   </section>
 
   <section class="tint about-short">
     <div class="wrap">
-      <div class="photo" role="img" aria-label="Место для фотографии">Фото</div>
+      <div class="photo"><span class="cap">Место для фото</span></div>
       <div class="text">
         <p class="eyebrow">Обо мне</p>
-        <h2>Имя Фамилия</h2>
-        <p class="lead"><i class="ph">2–3 предложения о себе: откуда пришла в профессию и почему работает именно с бизнес-запросами.</i></p>
-        <div class="credential">
-          <b>НИУ ВШЭ, магистратура «Психоанализ и психоаналитическое бизнес-консультирование»</b>
-          <small><i class="ph">годы обучения</i></small>
+        <h2>Екатерина Михальченко</h2>
+        <p class="lead">Больше 20 лет я работала в бизнесе и хорошо знаю организацию изнутри: коллектив, команду, руководителей. Поэтому работаю с теми, кто в этом мире устал или ищет своё место.</p>
+        <div class="creds">
+          <div class="credential"><b>НИУ ВШЭ, магистратура «Психоанализ и психоаналитическое бизнес-консультирование»</b><small>2025–2027</small></div>
+          <div class="credential"><b>Практика в проекте ВШЭ «Доступный коучинг»</b><small>Индивидуальный, групповой и корпоративный форматы</small></div>
+          <div class="credential"><b>Регулярные супервизии и интервизии</b><small>Стандарт психоаналитической практики</small></div>
         </div>
-        <a class="more" href="#about">Образование, принципы и этика →</a>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ============ ИНДИВИДУАЛЬНО ============ -->
-<div data-page="individual" hidden>
-  <section class="page-hero">
-    <div class="wrap">
-      <p class="crumbs"><a href="#home">Главная</a> / Индивидуальная работа</p>
-      <h1>Индивидуальная работа</h1>
-      <p class="lead">Для руководителей и специалистов, которые устали, потеряли интерес к делу или стоят перед выбором. Работаем один на один, в постоянной рамке и конфиденциально.</p>
-      <div class="hero-actions"><a class="btn" href="#contact" data-cta>Записаться на знакомство</a></div>
-    </div>
-  </section>
-
-  <section style="padding-top: 0">
-    <div class="wrap">
-      <div class="detail">
-        <div><p class="eyebrow">Запрос</p><h3>Выгорание</h3></div>
-        <div class="body">
-          <p>Усталость не проходит после отпуска, раздражает то, что раньше радовало, решения даются тяжело. Остановиться страшно.</p>
-          <ul>
-            <li>Отличаем выгорание от обычной усталости</li>
-            <li>Ищем, что заставляет работать на износ</li>
-            <li>Возвращаем управление нагрузкой себе</li>
-          </ul>
-        </div>
-      </div>
-      <div class="detail">
-        <div><p class="eyebrow">Запрос</p><h3>Утрата интереса к работе</h3></div>
-        <div class="body">
-          <p>Карьера складывается, но смысл уходит. Работа превращается в обязанность, и непонятно, что именно сломалось.</p>
-          <ul>
-            <li>Разбираемся, когда и почему интерес пропал</li>
-            <li>Отделяем «устал от этой работы» от «устал от работы вообще»</li>
-            <li>Ищем, что можно изменить, не ломая всё</li>
-          </ul>
-        </div>
-      </div>
-      <div class="detail">
-        <div><p class="eyebrow">Запрос</p><h3>Поиск призвания</h3></div>
-        <div class="body">
-          <p>Ощущение, что живёте не свою жизнь. Хочется понять, чем на самом деле хотите заниматься.</p>
-          <ul>
-            <li>Отделяем свои желания от ожиданий семьи и окружения</li>
-            <li>Разбираем, что мешало выбрать раньше</li>
-            <li>Проверяем варианты на реальность до резких шагов</li>
-          </ul>
-        </div>
-      </div>
-      <div class="detail">
-        <div><p class="eyebrow">Запрос</p><h3>Профессиональное развитие</h3></div>
-        <div class="body">
-          <p>Повышение, новая роль, смена сферы или уход из найма. Задача понятна, но что-то тормозит.</p>
-          <ul>
-            <li>Готовимся к переходу и новой ответственности</li>
-            <li>Работаем со страхом ошибки и откладыванием решений</li>
-            <li>Укрепляем опору на собственное мнение</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="tint" id="individual-mentoring-anchor">
-    <div class="wrap biz-block">
-      <div>
-        <p class="eyebrow">Отдельный формат</p>
-        <h2>Менторинг</h2>
-        <p class="lead">Регулярные встречи для тех, кто осваивает новую роль. Можно обсудить конкретные рабочие ситуации и получить взгляд со стороны.</p>
-      </div>
-      <div>
-        <h3>Кому подходит</h3>
-        <ul>
-          <li>Тем, кто впервые стал руководителем</li>
-          <li>Тем, кто перешёл в новую компанию или сферу</li>
-          <li>Тем, кто запускает своё дело после найма</li>
-        </ul>
-        <p class="eyebrow">Формат: <i class="ph">частота и длительность</i></p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Рамка работы</p>
-        <h2>Постоянные условия встреч</h2>
-        <p class="lead">В психоаналитической работе важна ровная рамка встреч. Постоянство времени и правил само по себе даёт опору.</p>
-      </div>
-      <div class="setting">
-        <div><b>50 минут</b><span>длительность встречи</span></div>
-        <div><b>1 раз в неделю</b><span>обычная частота</span></div>
-        <div><b>Онлайн / очно</b><span><i class="ph">город, адрес</i></span></div>
-        <div><b>Конфиденциально</b><span>без исключений</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="tint">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Стоимость</p>
-        <h2>Форматы и цены</h2>
-      </div>
-      <div class="prices">
-        <div class="price">
-          <p class="eyebrow">Знакомство</p>
-          <p class="sum"><i class="ph">цена или «бесплатно»</i></p>
-          <p>30 минут. Обсуждаем запрос и решаем, подходим ли друг другу.</p>
-        </div>
-        <div class="price featured">
-          <p class="eyebrow">Разовая встреча</p>
-          <p class="sum"><i class="ph">₽ за встречу</i></p>
-          <p>50 минут, онлайн или очно.</p>
-        </div>
-        <div class="price">
-          <p class="eyebrow">Пакет встреч</p>
-          <p class="sum"><i class="ph">₽ за пакет</i></p>
-          <p><i class="ph">N встреч</i>, оплата сразу за пакет.</p>
-        </div>
+        <a href="#about">Подробнее обо мне →</a>
       </div>
     </div>
   </section>
@@ -577,8 +530,12 @@ footer.site a { color: var(--muted); }
       </div>
       <div class="faq">
         <details>
+          <summary>Сколько стоит консультация?</summary>
+          <p>Стоимость обсуждаем на встрече-знакомстве, она зависит от формата. Пакеты покупать не нужно: каждая сессия оплачивается после её проведения.</p>
+        </details>
+        <details>
           <summary>Сколько встреч понадобится?</summary>
-          <p>Зависит от запроса. Иногда одной-двух встреч хватает, чтобы прояснить ситуацию. Глубокие темы, например выгорание или поиск своего дела, обычно требуют регулярной работы в течение нескольких месяцев. Ориентир обсуждаем на первой встрече.</p>
+          <p>Зависит от запроса. Иногда хватает нескольких встреч, чтобы прояснить ситуацию. Глубокие темы, например выгорание или поиск своего дела, обычно требуют регулярной работы в течение нескольких месяцев.</p>
         </details>
         <details>
           <summary>Чем вы отличаетесь от коуча?</summary>
@@ -586,90 +543,210 @@ footer.site a { color: var(--muted); }
         </details>
         <details>
           <summary>Это психотерапия?</summary>
-          <p>Нет. Я работаю с рабочими и профессиональными запросами. Если на встрече станет понятно, что нужна помощь врача или психотерапевта, я честно скажу об этом и подскажу, куда обратиться.</p>
+          <p>Нет. Я не ставлю диагнозы и не лечу психологические травмы. Если на встрече станет понятно, что нужна помощь врача или психотерапевта, я скажу об этом и подскажу, куда обратиться.</p>
+        </details>
+        <details>
+          <summary>Можно ли заниматься онлайн?</summary>
+          <p>Да. Встречи проходят онлайн или очно в центре Москвы, на Мясницкой.</p>
         </details>
         <details>
           <summary>Узнает ли кто-то о нашей работе?</summary>
-          <p>Нет. Содержание встреч не разглашается и не публикуется. Если работа оплачивается компанией, заранее договариваемся, какую общую информацию получит заказчик. Содержание разговоров в неё не входит.</p>
+          <p>Нет. Содержание встреч не разглашается. Если работу оплачивает компания, заранее договариваемся, какую общую информацию получит заказчик. Содержание разговоров в неё не входит.</p>
         </details>
         <details>
           <summary>Как отменить или перенести встречу?</summary>
-          <p><i class="ph">Правило отмены: за сколько часов предупредить и что происходит при поздней отмене.</i></p>
+          <p><i class="ph">Правило из оферты: за сколько часов предупредить.</i></p>
         </details>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ============ БИЗНЕСУ ============ -->
-<div data-page="business" hidden>
+<!-- ============ КОНСУЛЬТАЦИИ ============ -->
+<div data-page="individual" hidden>
   <section class="page-hero">
     <div class="wrap">
-      <p class="crumbs"><a href="#home">Главная</a> / Бизнесу</p>
-      <h1>Собственникам, компаниям и&nbsp;группам</h1>
-      <p class="lead">Когда проблема не в процессах и не в стратегии, а в людях, которые их ведут: в усталости, конфликтах, потере смысла и решениях, которые откладываются.</p>
-      <div class="hero-actions"><a class="btn" href="#contact" data-cta data-topic="Задача для компании">Обсудить задачу</a></div>
+      <p class="crumbs"><a href="#home">Главная</a> / Консультации</p>
+      <h1>Консультации психолога и бизнес-коучинг</h1>
+      <p class="lead">Индивидуальная работа один на один, онлайн или очно. Для специалистов и руководителей, которые устали, потеряли интерес к делу или стоят перед выбором.</p>
+      <div class="hero-actions"><a class="btn" href="#contact">Записаться на знакомство</a></div>
     </div>
   </section>
 
   <section style="padding-top: 0">
     <div class="wrap">
       <div class="detail">
-        <div><span class="biz-tag">Собственникам</span></div>
+        <div><p class="eyebrow">Запрос</p><h3>Выгорание</h3></div>
         <div class="body">
-          <h2>Работа с собственником бизнеса</h2>
-          <p>Собственнику часто не с кем обсудить сомнения: команда ждёт решений, партнёры и семья заинтересованы в результате. Здесь можно говорить честно.</p>
-          <ul>
-            <li>Выгорание и потеря интереса к собственному делу</li>
-            <li>Решения, которые долго откладываются: рост, продажа, выход из операционки</li>
-            <li>Напряжение с партнёрами и ключевыми людьми</li>
-            <li>Передача управления и роль собственника после этого</li>
-          </ul>
-          <p><b>Формат:</b> индивидуальные встречи, онлайн или очно, полная конфиденциальность.</p>
+          <p>Усталость не проходит после отпуска, раздражает то, что раньше радовало, решения даются тяжело. Остановиться страшно.</p>
+          <ul><li>Отличаем выгорание от обычной усталости</li><li>Ищем, что заставляет работать на износ</li><li>Возвращаем управление нагрузкой себе</li></ul>
         </div>
       </div>
       <div class="detail">
-        <div><span class="biz-tag">Компаниям</span></div>
+        <div><p class="eyebrow">Запрос</p><h3>Утрата интереса к работе</h3></div>
         <div class="body">
-          <h2>Руководители и команды</h2>
-          <p>Работа с руководителями по заказу компании, когда нужно поддержать ключевых людей.</p>
-          <ul>
-            <li>Выгорание руководителей и ключевых сотрудников</li>
-            <li>Адаптация в новой роли или после повышения</li>
-            <li>Потеря вовлечённости в команде</li>
-            <li>Скрытые конфликты, которые мешают работе</li>
-          </ul>
-          <p><b>Как строится работа:</b> встреча с заказчиком, затем встреча с участником. Договариваемся о целях и о том, какую общую информацию получит компания. Содержание встреч остаётся конфиденциальным.</p>
+          <p>Карьера складывается, но смысл уходит. Работа превращается в обязанность.</p>
+          <ul><li>Разбираемся, когда и почему интерес пропал</li><li>Отделяем «устал от этой работы» от «устал от работы вообще»</li><li>Ищем, что можно изменить, не ломая всё</li></ul>
         </div>
       </div>
       <div class="detail">
-        <div><span class="biz-tag soon">Группы: набор скоро</span></div>
+        <div><p class="eyebrow">Запрос</p><h3>Поиск призвания</h3></div>
         <div class="body">
-          <h2>Групповые программы</h2>
-          <p>Небольшие группы руководителей и специалистов с похожими запросами. В группе видно, что вы не одни, и можно учиться на опыте других.</p>
-          <ul>
-            <li><i class="ph">Тема первой группы, например «Выгорание у руководителей»</i></li>
-            <li>До <i class="ph">8</i> участников</li>
-            <li>Старт: <i class="ph">месяц</i></li>
-          </ul>
-          <p>Оставьте заявку с пометкой «Группа», и я напишу, когда откроется набор.</p>
+          <p>Ощущение, что живёте не свою жизнь. Хочется понять, чем на самом деле хотите заниматься.</p>
+          <ul><li>Отделяем свои желания от ожиданий окружения</li><li>Разбираем, что мешало выбрать раньше</li><li>Проверяем варианты на реальность до резких шагов</li></ul>
         </div>
       </div>
+      <div class="detail">
+        <div><p class="eyebrow">Запрос</p><h3>Коллектив и руководитель</h3></div>
+        <div class="body">
+          <p>Конфликты, непонимание, ощущение, что вас не слышат или не ценят.</p>
+          <ul><li>Видим сценарии, которые повторяются в отношениях</li><li>Разбираемся с ролью и местом в иерархии</li><li>Учимся говорить так, чтобы услышали</li></ul>
+        </div>
+      </div>
+      <div class="detail">
+        <div><p class="eyebrow">Руководителям</p><h3>Психоаналитический бизнес-коучинг</h3></div>
+        <div class="body">
+          <p>Для руководителей и собственников: управленческие решения, лидерство, давление ответственности.</p>
+          <ul><li>Операционка не оставляет времени на стратегию</li><li>Как управлять и контролировать без перегруза</li><li>Решения, которые долго откладываются</li></ul>
+          <p>Встречи раз в неделю, 50 минут.</p>
+        </div>
+      </div>
+      <div class="detail">
+        <div><p class="eyebrow">Границы</p><h3>С чем я не работаю</h3></div>
+        <div class="body">
+          <p>Я не ставлю диагнозы и не лечу психологические травмы. Если на знакомстве пойму, что вам нужна помощь врача или психотерапевта, скажу об этом честно и подскажу, к кому обратиться.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ КАРЬЕРА И МЕНТОРИНГ ============ -->
+<div data-page="career" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="crumbs"><a href="#home">Главная</a> / Карьера и менторинг</p>
+      <h1>Карьерное консультирование и&nbsp;менторинг</h1>
+      <p class="lead">В психоаналитическом подходе карьерный вопрос почти всегда больше, чем выбор должности. За ним стоят место в иерархии, отношения с организацией и представление о себе.</p>
+      <div class="hero-actions"><a class="btn" href="#contact">Обсудить мой вопрос</a></div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">С чем приходят</p>
+        <h2>Карьерные запросы</h2>
+      </div>
+      <ul class="quotes">
+        <li>«Я в тупике. Не понимаю, как достичь карьерной цели»</li>
+        <li>«Смогу ли я?»</li>
+        <li>«Хочу вырасти в руководителя отдела и выше. Не понимаю как»</li>
+        <li>«Достиг потолка, не вижу перспектив»</li>
+        <li>«Работаю пять лет, а меня не повышают»</li>
+        <li>«Как попросить о повышении зарплаты?»</li>
+        <li>«Куда я могу расти, оставаясь в компании?»</li>
+        <li>«Давно перерос свою должность. Хочу зарабатывать больше»</li>
+        <li>«Решаю операционные вопросы, на стратегию нет времени»</li>
+        <li>«Объясняю, а меня не понимают»</li>
+      </ul>
     </div>
   </section>
 
   <section class="tint">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Порядок работы с компанией</p>
-        <h2>Как начинаем</h2>
+        <p class="eyebrow">Что разбираем</p>
+        <h2>Четыре стороны карьерного вопроса</h2>
       </div>
-      <ol class="steps">
-        <li><h3>Запрос</h3><p>Вы описываете ситуацию в форме или в Telegram.</p></li>
-        <li><h3>Встреча с заказчиком</h3><p>Уточняем задачу, участников, сроки и ожидаемый результат.</p></li>
-        <li><h3>Предложение</h3><p>Присылаю формат, план и стоимость.</p></li>
-        <li><h3>Работа</h3><p>Встречи по согласованному плану и итоговая встреча с заказчиком.</p></li>
-      </ol>
+      <div class="areas">
+        <div class="area"><h3>Кризисы</h3><p>Возрастные и внутренние кризисы, кризис профессиональной идентичности.</p></div>
+        <div class="area"><h3>Иерархия</h3><p>Где моё место в организации и почему я там, где есть.</p></div>
+        <div class="area"><h3>Профессиональное поле</h3><p>Ниша, рынок, моя ценность для работодателя.</p></div>
+        <div class="area"><h3>Отношения</h3><p>С организацией, руководителем, командой и профессиональными группами.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="career-mentoring-anchor">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Менторинг</p>
+        <h2>Психоаналитический менторинг</h2>
+        <p class="lead">Регулярные встречи для тех, кто осваивает новую роль. Главная задача — помочь выйти из привычных моделей мышления и увидеть ситуацию и своё поведение с новой точки зрения.</p>
+      </div>
+      <div class="approach" style="margin-bottom: 40px">
+        <div>
+          <h3>Ментор — попутчик</h3>
+          <p>Я сама прошла похожий путь в бизнесе и помогаю пройти его вам. Без советов «сверху» и готовых рецептов.</p>
+        </div>
+        <div>
+          <h3>Взрослый со взрослым</h3>
+          <p>Отношения строятся на взаимном уважении, доверии, искренности и эмпатии.</p>
+        </div>
+        <div>
+          <h3>Приключение, а не испытание</h3>
+          <p>Путь к цели идёт с интересом и любопытством. Так выше шанс справиться с трудностями.</p>
+        </div>
+      </div>
+      <div class="detail">
+        <div><h3>Кому подходит</h3></div>
+        <div class="body">
+          <ul><li>Новым руководителям</li><li>Тем, кто меняет профессию</li><li>Начинающим специалистам</li><li>Новым сотрудникам компании в период адаптации</li></ul>
+        </div>
+      </div>
+      <div class="detail">
+        <div><h3>Принципы</h3></div>
+        <div class="body">
+          <ul class="chips">
+            <li>Профессионализм</li><li>Конфиденциальность и доверие</li><li>Добровольность</li><li>Открытость</li>
+            <li>Вовлечённость и эмпатия</li><li>Партнёрство</li><li>Целенаправленность</li><li>Эффективность</li>
+            <li>Ограниченность во времени</li><li>Ответственность</li><li>Опора на бессознательное</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ГРУППЫ И БИЗНЕС ============ -->
+<div data-page="business" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="crumbs"><a href="#home">Главная</a> / Группы и бизнес</p>
+      <h1>Группы, лидеры и команды</h1>
+      <p class="lead">Когда проблема не в процессах и не в стратегии, а в людях, которые их ведут: в усталости, конфликтах, потере смысла и решениях, которые откладываются.</p>
+      <div class="hero-actions"><a class="btn" href="#contact" data-topic="Лидеры и команды">Обсудить задачу</a></div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0">
+    <div class="wrap">
+      <div class="detail">
+        <div><span class="biz-tag">Группы</span></div>
+        <div class="body">
+          <h2>Групповая работа</h2>
+          <p>Небольшие группы людей с похожими запросами. В группе видно, что вы не одни, и можно учиться на опыте других.</p>
+          <ul><li>Тема ближайшей группы: <i class="ph">уточнить</i></li><li>Оставьте заявку с пометкой «Группа», и я напишу, когда откроется набор</li></ul>
+        </div>
+      </div>
+      <div class="detail">
+        <div><span class="biz-tag">Лидеры</span></div>
+        <div class="body">
+          <h2>Работа с руководителем и собственником</h2>
+          <p>Руководителю часто не с кем обсудить сомнения: команда ждёт решений, партнёры заинтересованы в результате. Здесь можно говорить честно.</p>
+          <ul><li>Выгорание и потеря интереса к своему делу</li><li>Решения, которые долго откладываются</li><li>Напряжение с партнёрами и ключевыми людьми</li></ul>
+        </div>
+      </div>
+      <div class="detail">
+        <div><span class="biz-tag">Команды</span></div>
+        <div class="body">
+          <h2>Работа с командой по заказу компании</h2>
+          <ul><li>Конфликты, скрытые и открытые</li><li>Потеря вовлечённости</li><li>Новый руководитель или новый состав команды</li></ul>
+          <p>Сначала встреча с заказчиком: уточняем задачу, участников и ожидаемый результат. Содержание индивидуальных встреч остаётся конфиденциальным.</p>
+          <p>Опыт групповой и корпоративной работы — в проекте ВШЭ «Доступный коучинг».</p>
+        </div>
+      </div>
     </div>
   </section>
 </div>
@@ -685,11 +762,11 @@ footer.site a { color: var(--muted); }
 
   <section class="about-short" style="padding-top: 0">
     <div class="wrap">
-      <div class="photo" role="img" aria-label="Место для фотографии">Фото</div>
+      <div class="photo"><span class="cap">Место для фото</span></div>
       <div class="text">
-        <h2>Имя Фамилия</h2>
-        <p class="lead"><i class="ph">Абзац о себе: путь в профессию, почему бизнес-запросы, что важно в работе с клиентами. Писать от первого лица, просто и без пафоса.</i></p>
-        <p class="lead"><i class="ph">Второй абзац: личный опыт работы, если он помогает клиенту доверять (сфера, роль, годы).</i></p>
+        <h2>Екатерина Михальченко</h2>
+        <p class="lead">Больше 20 лет я работала в бизнесе. Я знаю организацию изнутри: как устроены коллектив и команда, что значит отвечать за результат и жить под давлением сроков.</p>
+        <p class="lead">Поэтому я работаю именно с рабочими и бизнес-запросами. Я сама в этом варилась и понимаю, о чём говорят мои клиенты, с полуслова. Психоаналитическое образование даёт инструменты, чтобы увидеть, что на самом деле стоит за усталостью, конфликтами и застоем.</p>
       </div>
     </div>
   </section>
@@ -698,12 +775,13 @@ footer.site a { color: var(--muted); }
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Образование</p>
-        <h2>Образование и обучение</h2>
+        <h2>Образование и практика</h2>
       </div>
       <div class="timeline">
-        <div><span><i class="ph">годы</i></span><p><b>НИУ ВШЭ</b>, магистратура «Психоанализ и психоаналитическое бизнес-консультирование»</p></div>
-        <div><span><i class="ph">год</i></span><p><i class="ph">Базовое образование</i></p></div>
-        <div><span><i class="ph">год</i></span><p><i class="ph">Курсы и повышение квалификации</i></p></div>
+        <div><span>2025–2027</span><p><b>НИУ ВШЭ</b>, магистратура «Психоанализ и психоаналитическое бизнес-консультирование»</p></div>
+        <div><span>С 2025</span><p>Практика в проекте ВШЭ «Доступный коучинг»: индивидуальный, групповой и корпоративный форматы</p></div>
+        <div><span>20+ лет</span><p>Работа в бизнесе</p></div>
+        <div><span>Первое образование</span><p>Экономика и управление на предприятии, экономист-менеджер</p></div>
       </div>
     </div>
   </section>
@@ -715,16 +793,16 @@ footer.site a { color: var(--muted); }
         <h2>Как я работаю</h2>
       </div>
       <div class="principles">
-        <div><h3>Конфиденциальность</h3><p>Не разглашаю содержание встреч и сведения о клиентах. Примеры из практики публикую только обезличенно и с согласия клиента.</p></div>
-        <div><h3>Супервизия</h3><p>Регулярно разбираю свою работу с более опытным коллегой. Это стандарт психоаналитической практики и гарантия качества. <i class="ph">Указать, если есть.</i></p></div>
+        <div><h3>Конфиденциальность</h3><p>Не разглашаю содержание встреч и сведения о клиентах.</p></div>
+        <div><h3>Супервизии и интервизии</h3><p>Регулярно разбираю свою работу с опытными коллегами. Это стандарт психоаналитической практики.</p></div>
         <div><h3>Без оценок</h3><p>Не критикую, не сравниваю с другими и уважаю ваш темп. Решения принимаете вы.</p></div>
-        <div><h3>Честные границы</h3><p>Если понимаю, что ваш запрос вне моей компетенции или нужна помощь врача, говорю об этом на первой встрече и подсказываю, к кому обратиться.</p></div>
+        <div><h3>Честные границы</h3><p>Не ставлю диагнозы и не лечу травмы. Если нужна помощь врача, говорю об этом прямо.</p></div>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ============ ЗАПИСЬ (на всех страницах) ============ -->
+<!-- ============ ЗАПИСЬ ============ -->
 <section class="tint cta" id="contact">
   <div class="wrap">
     <div class="cta-text">
@@ -732,9 +810,11 @@ footer.site a { color: var(--muted); }
       <h2>Начнём с&nbsp;короткой встречи</h2>
       <p class="lead">30 минут, чтобы обсудить вашу ситуацию и понять, подходит ли вам такая работа. Ни к чему не обязывает.</p>
       <dl class="contacts-list">
-        <div><dt>Telegram</dt><dd><i class="ph">@username</i></dd></div>
-        <div><dt>Телефон</dt><dd><i class="ph">+7 ___ ___-__-__</i></dd></div>
-        <div><dt>Почта</dt><dd><i class="ph">mail@домен.ru</i></dd></div>
+        <div><dt>Telegram</dt><dd><a href="https://t.me/EktrMkh" target="_blank" rel="noopener">@EktrMkh</a></dd></div>
+        <div><dt>WhatsApp</dt><dd><a href="https://wa.me/79169007170" target="_blank" rel="noopener">+7 916 900-71-70</a></dd></div>
+        <div><dt>Телефон</dt><dd>+7 916 900-71-70</dd></div>
+        <div><dt>Почта</dt><dd><i class="ph">почта</i></dd></div>
+        <div><dt>Где</dt><dd>Онлайн или очно: Москва, Мясницкая</dd></div>
       </dl>
     </div>
     <form class="lead-form" id="lead-form" novalidate>
@@ -746,11 +826,12 @@ footer.site a { color: var(--muted); }
       </label>
       <label for="f-topic">Что вас интересует
         <select id="f-topic" name="topic">
-          <option>Индивидуальная работа</option>
+          <option>Консультация психолога</option>
+          <option>Бизнес-коучинг</option>
+          <option>Карьерное консультирование</option>
           <option>Менторинг</option>
-          <option>Работа с собственником</option>
-          <option>Задача для компании</option>
           <option>Группа</option>
+          <option>Лидеры и команды</option>
         </select>
       </label>
       <label for="f-msg">Коротко о ситуации (необязательно)
@@ -768,18 +849,24 @@ footer.site a { color: var(--muted); }
 
 </main>
 
+<div class="sticky-cta">
+  <a class="btn" href="#contact">Записаться</a>
+  <a class="btn ghost" href="https://t.me/EktrMkh" target="_blank" rel="noopener">Telegram</a>
+</div>
+
 <footer class="site">
   <div class="wrap">
     <div>
-      <h4>Имя Фамилия</h4>
-      <p>Психоаналитическое бизнес-консультирование</p>
-      <p style="margin-top: 10px"><i class="ph">ИП / самозанятая, ИНН</i></p>
+      <h4>Екатерина Михальченко</h4>
+      <p>Психолог-консультант, психоаналитический подход</p>
+      <p style="margin-top: 10px">Самозанятая (НПД), ИНН 631405600910</p>
     </div>
     <div>
       <h4>Разделы</h4>
       <ul>
-        <li><a href="#individual">Индивидуальная работа</a></li>
-        <li><a href="#business">Бизнесу</a></li>
+        <li><a href="#individual">Консультации</a></li>
+        <li><a href="#career">Карьера и менторинг</a></li>
+        <li><a href="#business">Группы и бизнес</a></li>
         <li><a href="#about">Обо мне</a></li>
       </ul>
     </div>
@@ -788,7 +875,7 @@ footer.site a { color: var(--muted); }
       <ul>
         <li><i class="ph">Политика обработки персональных данных</i></li>
         <li><i class="ph">Согласие на обработку данных</i></li>
-        <li><i class="ph">Договор оферты</i></li>
+        <li><i class="ph">Договор-оферта</i></li>
       </ul>
     </div>
   </div>
@@ -796,7 +883,7 @@ footer.site a { color: var(--muted); }
 
 <script>
 (function () {
-  var pages = ["home", "individual", "business", "about"];
+  var pages = ["home", "individual", "career", "business", "about"];
   var nav = document.getElementById("main-nav");
   var menuBtn = document.getElementById("menu-btn");
 
@@ -821,7 +908,7 @@ footer.site a { color: var(--muted); }
   function route() {
     var h = location.hash.replace("#", "");
     if (h === "contact") { document.getElementById("contact").scrollIntoView(); return; }
-    if (h === "individual-mentoring") { show("individual", "individual-mentoring-anchor"); return; }
+    if (h === "career-mentoring") { show("career", "career-mentoring-anchor"); return; }
     show(h || "home");
   }
 
@@ -833,7 +920,6 @@ footer.site a { color: var(--muted); }
     menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
   });
 
-  // Кнопка «Обсудить задачу» сразу выбирает нужную тему в форме
   document.querySelectorAll("[data-topic]").forEach(function (a) {
     a.addEventListener("click", function () {
       document.getElementById("f-topic").value = a.getAttribute("data-topic");
@@ -844,18 +930,17 @@ footer.site a { color: var(--muted); }
   var msg = document.getElementById("form-msg");
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    var name = form.name.value.trim();
-    var contact = form.contact.value.trim();
-    if (!name || !contact) {
+    if (!form.name.value.trim() || !form.contact.value.trim()) {
       msg.textContent = "Заполните имя и способ связи.";
     } else if (!form.consent.checked) {
       msg.textContent = "Отметьте согласие на обработку персональных данных.";
     } else {
-      msg.textContent = "В прототипе форма никуда не отправляет данные. На готовом сайте заявка придёт ей в Telegram или на почту.";
+      msg.textContent = "В прототипе форма никуда не отправляет данные. На готовом сайте заявка придёт в Telegram или на почту.";
     }
     msg.hidden = false;
   });
 })();
 </script>
+
 </body>
 </html>
