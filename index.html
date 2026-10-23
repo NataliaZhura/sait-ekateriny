@@ -8,7 +8,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Golos+Text:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Commissioner:wght@300;400;500;600&display=swap">
 <style>
 /* Палитра: слоновая кость и марсала — в тон фото. Шрифты: Playfair Display (контрастная антиква, курсив для смысловых слов) + Golos Text.
    Layout: одна страница. Боль → мысль и решение (тёмная полоса «хочу · могу · надо») → запись. Подробности — в раскрывающихся блоках.
@@ -29,7 +29,7 @@
   --note: #F3E7C9;
   --note-ink: #5A4512;
   --font-display: "Playfair Display", "Georgia", "Times New Roman", serif;
-  --font-body: "Golos Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "Commissioner", "Segoe UI", system-ui, -apple-system, sans-serif;
   --max: 1160px;
   --text: 40rem;
 }
@@ -51,7 +51,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.65; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-weight: 300; font-size: 17px; line-height: 1.7; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
 .wrap {
   max-width: var(--max); margin-inline: auto;
