@@ -8,10 +8,11 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Golos+Text:wght@400;500;600&display=swap">
 <style>
-/* Палитра: слоновая кость и винно-сливовый акцент (марсала) — в тон белой рубашке и тёмным волосам на фото.
-   Layout: одна страница. Три главных блока (боль → решение → запись), всё остальное в раскрывающихся блоках ниже. */
+/* Палитра: слоновая кость и марсала — в тон фото. Шрифты: Playfair Display (контрастная антиква, курсив для смысловых слов) + Golos Text.
+   Layout: одна страница. Боль → мысль и решение (тёмная полоса «хочу · могу · надо») → запись. Подробности — в раскрывающихся блоках.
+   Фирменный знак — три пересекающихся круга. */
 :root {
   --bg: #F7F4F2;
   --surface: #FFFFFF;
@@ -22,23 +23,28 @@
   --accent: #7A3A4F;
   --accent-soft: #C9A3AF;
   --accent-ink: #FFFFFF;
+  --deep: #3B1F29;
+  --deep-ink: #F6ECEE;
+  --deep-muted: #CDB3BB;
   --note: #F3E7C9;
   --note-ink: #5A4512;
-  --font-display: "Prata", "Georgia", "Times New Roman", serif;
+  --font-display: "Playfair Display", "Georgia", "Times New Roman", serif;
   --font-body: "Golos Text", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --max: 1120px;
+  --max: 1160px;
   --text: 40rem;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #181315; --surface: #211A1C; --tint: #2A2023; --ink: #EFE7E8; --muted: #B3A4A8;
-    --line: #3A2E31; --accent: #D79BAE; --accent-soft: #6E4A56; --accent-ink: #1F1216; --note: #3A3220; --note-ink: #F0DDB0;
+    --line: #3A2E31; --accent: #D79BAE; --accent-soft: #6E4A56; --accent-ink: #1F1216;
+    --deep: #2B171E; --deep-ink: #F6ECEE; --deep-muted: #C2A6AF; --note: #3A3220; --note-ink: #F0DDB0;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #181315; --surface: #211A1C; --tint: #2A2023; --ink: #EFE7E8; --muted: #B3A4A8;
-  --line: #3A2E31; --accent: #D79BAE; --accent-soft: #6E4A56; --accent-ink: #1F1216; --note: #3A3220; --note-ink: #F0DDB0;
+  --line: #3A2E31; --accent: #D79BAE; --accent-soft: #6E4A56; --accent-ink: #1F1216;
+  --deep: #2B171E; --deep-ink: #F6ECEE; --deep-muted: #C2A6AF; --note: #3A3220; --note-ink: #F0DDB0;
   color-scheme: dark;
 }
 
@@ -52,14 +58,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
-h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.2; }
-h1 { font-size: clamp(2rem, 4.8vw, 3.2rem); }
-h2 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); }
-h3 { font-size: 1.25rem; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.15; }
+h2 { font-size: clamp(1.8rem, 3.6vw, 2.7rem); }
+h3 { font-size: 1.3rem; }
+em { font-style: italic; color: var(--accent); }
 p { margin: 0; }
 a { color: var(--accent); }
 ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
-.eyebrow { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.eyebrow { font-size: .76rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
 .lead { font-size: 1.15rem; line-height: 1.8; color: var(--muted); max-width: var(--text); }
 .ph { background: var(--note); color: var(--note-ink); padding: 0 .3em; border-radius: 3px; font-style: normal; }
 
@@ -71,27 +77,29 @@ header.site {
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
 }
-header.site .wrap { display: flex; align-items: center; gap: 24px; padding-block: 14px; }
-.brand { text-decoration: none; color: var(--ink); display: grid; line-height: 1.2; }
-.brand b { font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; }
-.brand span { font-size: .75rem; color: var(--muted); letter-spacing: .04em; }
+header.site .wrap { display: flex; align-items: center; gap: 24px; padding-block: 12px; }
+.brand { text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 10px; line-height: 1.2; }
+.brand svg { width: 34px; height: 30px; flex: none; }
+.brand svg circle { fill: none; stroke: var(--accent); stroke-width: 1.4; }
+.brand b { font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; display: block; }
+.brand span { font-size: .72rem; color: var(--muted); letter-spacing: .06em; }
 nav.main { margin-left: auto; display: flex; gap: 22px; align-items: center; }
 nav.main a { color: var(--ink); text-decoration: none; font-size: .95rem; }
 nav.main a:hover { color: var(--accent); }
+nav.main a.btn, nav.main a.btn:hover { color: var(--accent-ink); }
 @media (max-width: 760px) { nav.main a:not(.btn) { display: none; } }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  font: 500 1rem var(--font-body); padding: 13px 24px; border-radius: 999px;
+  font: 500 1rem var(--font-body); padding: 14px 26px; border-radius: 999px;
   border: 1.5px solid var(--accent); text-decoration: none; cursor: pointer;
-  background: var(--accent); color: var(--accent-ink); transition: transform .15s ease;
+  background: var(--accent); color: var(--accent-ink); transition: transform .15s ease, box-shadow .15s ease;
 }
-.btn:hover { transform: translateY(-1px); }
-.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent-soft); }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px -10px var(--accent); }
+.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent-soft); box-shadow: none; }
 .btn.small { padding: 8px 16px; font-size: .9rem; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-/* Лёгкая панель записи внизу экрана на телефоне */
 .sticky-cta { display: none; }
 @media (max-width: 680px) {
   .sticky-cta {
@@ -106,41 +114,55 @@ nav.main a:hover { color: var(--accent); }
   footer.site { padding-bottom: 88px; }
 }
 
-section { padding-block: clamp(52px, 7vw, 88px); }
+section { padding-block: clamp(56px, 8vw, 104px); }
 section.tint { background: var(--tint); }
-.section-head { display: grid; gap: 12px; margin-bottom: 36px; max-width: 46rem; }
+.section-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 48rem; }
 
 /* Первый экран */
-.hero { padding-block: clamp(40px, 6vw, 72px); }
-.hero .wrap { display: grid; grid-template-columns: 1.3fr .8fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-.hero-text { display: grid; gap: 22px; min-width: 0; }
+.hero { padding-block: clamp(36px, 6vw, 80px); overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.35fr .9fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.hero-text { display: grid; gap: 24px; min-width: 0; }
+.hero h1 { font-family: var(--font-body); font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; color: var(--muted); line-height: 1.6; }
+.hero h1 b { color: var(--ink); font-weight: 600; }
+.statement { font-family: var(--font-display); font-size: clamp(2.5rem, 6.2vw, 4.6rem); line-height: 1.04; letter-spacing: -.01em; text-wrap: balance; }
+.statement em { font-weight: 400; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.frame { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: .9rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+.frame { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .9rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; }
 .frame span::before { content: "◦ "; color: var(--accent); }
-.photo { aspect-ratio: 3 / 4; width: 100%; max-width: 100%; border-radius: 4px 120px 4px 4px; background: var(--tint); border: 1px solid var(--line); overflow: hidden; position: relative; }
-.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
-.photo .cap { position: absolute; left: 10px; bottom: 10px; font-size: .75rem; background: var(--note); color: var(--note-ink); padding: 2px 8px; border-radius: 3px; }
-@media (max-width: 760px) {
+
+.portrait { position: relative; justify-self: end; width: 100%; max-width: 420px; }
+.portrait .rings { position: absolute; inset: -9% -14% auto auto; width: 74%; aspect-ratio: 1; pointer-events: none; }
+.portrait .rings circle { fill: none; stroke: var(--accent); stroke-width: .6; opacity: .45; }
+.photo { aspect-ratio: 3 / 4; width: 100%; max-width: 100%; border-radius: 999px 999px 6px 6px; background: var(--tint); overflow: hidden; position: relative; }
+.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+.portrait .sign {
+  position: absolute; left: -18px; bottom: 26px; background: var(--surface); border: 1px solid var(--line);
+  padding: 12px 16px; border-radius: 6px; display: grid; gap: 2px; box-shadow: 0 14px 30px -18px rgba(59, 31, 41, .5);
+}
+.portrait .sign b { font-family: var(--font-display); font-size: 1.6rem; line-height: 1; color: var(--accent); font-weight: 400; }
+.portrait .sign span { font-size: .78rem; color: var(--muted); }
+@media (max-width: 800px) {
   .hero .wrap { grid-template-columns: 1fr; }
-  .hero .photo { max-width: 320px; border-radius: 4px 80px 4px 4px; order: -1; }
+  .portrait { justify-self: center; max-width: 300px; order: -1; }
+  .portrait .sign { left: -8px; }
 }
 
 /* 1. Боль */
 .pains { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.pain { background: var(--surface); padding: 24px; display: grid; gap: 8px; align-content: start; }
-.pain q { font-family: var(--font-display); font-size: 1.12rem; line-height: 1.45; quotes: "«" "»"; }
-.pain span { font-size: .85rem; color: var(--muted); }
+.pain { background: var(--surface); padding: 26px; display: grid; gap: 10px; align-content: start; transition: background .2s ease; }
+.pain:hover { background: var(--bg); }
+.pain q { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.4; quotes: "«" "»"; }
+.pain span { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
 @media (max-width: 860px) { .pains { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .pains { grid-template-columns: 1fr; } }
 .biz-line { margin-top: 18px; color: var(--muted); font-size: .95rem; }
 
-/* Чек-лист */
 .magnet {
-  margin-top: 36px; border-radius: 8px; padding: clamp(22px, 4vw, 36px);
+  margin-top: 40px; border-radius: 8px; padding: clamp(22px, 4vw, 40px);
   background: var(--accent); color: var(--accent-ink);
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: center;
 }
-.magnet h3 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); }
+.magnet h3 { font-size: clamp(1.4rem, 2.8vw, 1.9rem); font-style: italic; }
 .magnet p { opacity: .92; line-height: 1.7; }
 .magnet small { opacity: .75; font-size: .8rem; }
 .magnet form { display: grid; gap: 10px; min-width: 0; }
@@ -150,11 +172,33 @@ section.tint { background: var(--tint); }
 .magnet .form-msg { background: color-mix(in srgb, var(--surface) 18%, transparent); color: var(--accent-ink); }
 @media (max-width: 760px) { .magnet { grid-template-columns: 1fr; } }
 
-/* 2. Решение */
+/* 2. Мысль: тёмная полоса */
+.idea { background: var(--deep); color: var(--deep-ink); }
+.idea .eyebrow { color: var(--deep-muted); }
+.idea h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); max-width: 20ch; }
+.idea h2 em { color: var(--accent-soft); }
+.idea .lead { color: var(--deep-muted); }
+.triad { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 48px; border-top: 1px solid color-mix(in srgb, var(--deep-ink) 22%, transparent); }
+.triad div { padding: 26px 24px 8px 0; display: grid; gap: 10px; align-content: start; }
+.triad div + div { padding-left: 24px; border-left: 1px solid color-mix(in srgb, var(--deep-ink) 22%, transparent); }
+.triad b { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1; color: var(--deep-ink); }
+.triad p { color: var(--deep-muted); font-size: .98rem; }
+.triad .lost { color: var(--deep-ink); font-size: .92rem; }
+.triad .lost::before { content: "Когда теряется: "; color: var(--accent-soft); }
+@media (max-width: 760px) {
+  .triad { grid-template-columns: 1fr; }
+  .triad div + div { padding-left: 0; border-left: 0; border-top: 1px solid color-mix(in srgb, var(--deep-ink) 22%, transparent); }
+}
+.idea .promise { margin-top: 44px; display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; max-width: 48rem; }
+.idea .promise svg { width: 64px; height: 56px; }
+.idea .promise svg circle { fill: none; stroke: var(--accent-soft); stroke-width: 1.2; }
+.idea .promise p { font-size: 1.12rem; line-height: 1.75; color: var(--deep-ink); }
+
+/* Направления */
 .dirs { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 20px; }
-.dir { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 26px; display: grid; gap: 12px; align-content: start; }
+.dir { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 28px; display: grid; gap: 12px; align-content: start; }
 .dir.main { border-color: var(--accent-soft); }
-.dir .num { font-family: var(--font-display); color: var(--accent); font-size: 1.6rem; line-height: 1; }
+.dir .num { font-family: var(--font-display); font-style: italic; color: var(--accent); font-size: 2.2rem; line-height: 1; }
 .dir ul { color: var(--muted); font-size: .97rem; }
 .dir .sub { display: grid; gap: 4px; padding-top: 10px; border-top: 1px solid var(--line); }
 .dir .sub b { font-weight: 500; font-size: .95rem; }
@@ -162,13 +206,14 @@ section.tint { background: var(--tint); }
 
 .process { margin-top: 40px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .process div { background: var(--surface); padding: 20px; display: grid; gap: 4px; align-content: start; }
-.process b { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; }
+.process b { font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; }
 .process span { color: var(--muted); font-size: .9rem; }
 @media (max-width: 760px) { .process { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* 3. Запись */
 .cta .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); }
 .cta-text { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.cta h2 em { font-weight: 400; }
 form.lead-form { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 28px; display: grid; gap: 16px; min-width: 0; }
 label { display: grid; gap: 6px; font-size: .9rem; font-weight: 500; }
 input, select, textarea { font: 400 1rem var(--font-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 11px 12px; width: 100%; }
@@ -182,18 +227,19 @@ textarea { min-height: 90px; resize: vertical; }
 .contacts-list dd { margin: 0; }
 @media (max-width: 760px) { .cta .wrap { grid-template-columns: 1fr; } }
 
-/* Подробнее: раскрывающиеся блоки */
-.more-list { display: grid; max-width: 56rem; }
+/* Подробнее */
+.more-list { display: grid; max-width: 58rem; }
 .more-list > details { border-top: 1px solid var(--line); }
 .more-list > details:last-child { border-bottom: 1px solid var(--line); }
 .more-list > details > summary {
   cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;
-  padding-block: 22px; font-family: var(--font-display); font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+  padding-block: 24px; font-family: var(--font-display); font-size: clamp(1.25rem, 2.6vw, 1.6rem);
 }
+.more-list > details > summary:hover { color: var(--accent); }
 .more-list > details > summary::-webkit-details-marker { display: none; }
-.more-list > details > summary::after { content: "+"; color: var(--accent); font-family: var(--font-body); font-size: 1.6rem; line-height: 1; }
+.more-list > details > summary::after { content: "+"; color: var(--accent); font-family: var(--font-body); font-weight: 300; font-size: 1.8rem; line-height: 1; }
 .more-list > details[open] > summary::after { content: "–"; }
-.more-body { display: grid; gap: 24px; padding-bottom: 32px; min-width: 0; }
+.more-body { display: grid; gap: 24px; padding-bottom: 34px; min-width: 0; }
 .more-body p { color: var(--muted); line-height: 1.75; max-width: var(--text); }
 .more-body h4 { margin: 0; font-size: 1rem; font-weight: 600; }
 
@@ -210,14 +256,13 @@ textarea { min-height: 90px; resize: vertical; }
 .cols > div { display: grid; gap: 8px; align-content: start; }
 @media (max-width: 640px) { .cols { grid-template-columns: 1fr; } }
 
-/* Призвание: три круга */
 .calling { display: grid; grid-template-columns: 240px 1fr; gap: 32px; align-items: center; }
 .calling > div { display: grid; gap: 12px; min-width: 0; }
 .venn { width: 100%; max-width: 240px; height: auto; }
 .venn circle { fill: var(--accent); fill-opacity: .08; stroke: var(--accent); stroke-width: 1.2; }
-.venn text { fill: var(--ink); font-family: var(--font-display); font-size: 17px; text-anchor: middle; }
-.venn text.core { fill: var(--accent); font-family: var(--font-body); font-size: 10px; font-weight: 600; letter-spacing: .04em; }
-.calling ul { color: var(--ink); font-family: var(--font-display); font-size: 1.05rem; }
+.venn text { fill: var(--ink); font-family: var(--font-display); font-style: italic; font-size: 18px; text-anchor: middle; }
+.venn text.core { fill: var(--accent); font-family: var(--font-body); font-style: normal; font-size: 10px; font-weight: 600; letter-spacing: .04em; }
+.calling ul { color: var(--ink); font-family: var(--font-display); font-style: italic; font-size: 1.08rem; }
 .calling .key { color: var(--ink); }
 @media (max-width: 640px) { .calling { grid-template-columns: 1fr; } }
 
@@ -229,7 +274,7 @@ td:first-child { font-weight: 500; }
 tr.me td { background: var(--tint); }
 
 .quote { border-left: 2px solid var(--accent); padding: 4px 0 4px 20px; display: grid; gap: 8px; max-width: var(--text); }
-.quote p { font-family: var(--font-display); font-size: 1.12rem; line-height: 1.55; color: var(--ink); }
+.quote p { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.55; color: var(--ink); }
 .quote cite { font-style: normal; color: var(--muted); font-size: .9rem; }
 .quote small { color: var(--muted); font-style: italic; }
 
@@ -252,7 +297,7 @@ footer.site ul { list-style: none; padding: 0; }
 
 <div class="proto">
   <div class="wrap">
-    <strong>Прототип, версия 5.</strong>
+    <strong>Прототип, версия 6.</strong>
     <span>Жёлтым отмечено то, что нужно уточнить.</span>
   </div>
 </div>
@@ -260,8 +305,8 @@ footer.site ul { list-style: none; padding: 0; }
 <header class="site">
   <div class="wrap">
     <a class="brand" href="#top">
-      <b>Екатерина Михальченко</b>
-      <span>Психоаналитический психолог</span>
+      <svg viewBox="0 0 34 30" aria-hidden="true"><circle cx="12" cy="11" r="8.5"></circle><circle cx="22" cy="11" r="8.5"></circle><circle cx="17" cy="19.5" r="8.5"></circle></svg>
+      <span><b>Екатерина Михальченко</b>психоаналитический психолог</span>
     </a>
     <nav class="main">
       <a href="#pain">С чем приходят</a>
@@ -278,9 +323,9 @@ footer.site ul { list-style: none; padding: 0; }
 <section class="hero">
   <div class="wrap">
     <div class="hero-text">
-      <p class="eyebrow">Онлайн и очно · Москва, Мясницкая</p>
-      <h1>Психоаналитический психолог с&nbsp;20-летним опытом работы в&nbsp;бизнесе</h1>
-      <p class="lead">Помогаю, когда работа забирает силы и смысл. Разбираемся, что на самом деле стоит за усталостью, конфликтами и карьерным тупиком.</p>
+      <h1><b>Екатерина Михальченко</b> · психоаналитический психолог с&nbsp;20-летним опытом работы в&nbsp;бизнесе</h1>
+      <p class="statement">Когда «надо» заглушает&nbsp;<em>«хочу»</em>, работа перестаёт радовать</p>
+      <p class="lead">Помогаю разобраться, что на самом деле стоит за усталостью, конфликтами и карьерным тупиком, и вернуть себе выбор. Онлайн и очно, Москва, Мясницкая.</p>
       <div class="hero-actions">
         <a class="btn" href="#contact">Записаться на знакомство</a>
         <a class="btn ghost" href="https://t.me/EktrMkh" target="_blank" rel="noopener">Написать в Telegram</a>
@@ -291,7 +336,11 @@ footer.site ul { list-style: none; padding: 0; }
         <span>Оплата после сессии</span>
       </div>
     </div>
-    <div class="photo"><img src="foto.jpg" alt="Екатерина Михальченко"></div>
+    <div class="portrait">
+      <svg class="rings" viewBox="0 0 200 200" aria-hidden="true"><circle cx="72" cy="72" r="56"></circle><circle cx="128" cy="72" r="56"></circle><circle cx="100" cy="120" r="56"></circle></svg>
+      <div class="photo"><img src="foto.jpg" alt="Екатерина Михальченко"></div>
+      <div class="sign"><b>20+ лет</b><span>в бизнесе изнутри</span></div>
+    </div>
   </div>
 </section>
 
@@ -300,15 +349,15 @@ footer.site ul { list-style: none; padding: 0; }
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">С чем приходят</p>
-      <h2>Узнаёте себя?</h2>
+      <h2>Узнаёте <em>себя?</em></h2>
     </div>
     <div class="pains">
-      <div class="pain"><q>Сил нет, а остановиться не могу. Если сбавлю темп, всё развалится</q><span>Выгорание</span></div>
-      <div class="pain"><q>Снаружи всё есть: должность, доход. А внутри пусто</q><span>Потеря интереса к работе</span></div>
-      <div class="pain"><q>Не знаю, чего хочу. Кажется, живу не свою жизнь</q><span>Поиск призвания</span></div>
-      <div class="pain"><q>Работаю пять лет, а меня не повышают. Упёрся в потолок</q><span>Карьера</span></div>
-      <div class="pain"><q>Начальник давит, с коллективом конфликты. Объясняю, а меня не слышат</q><span>Отношения на работе</span></div>
-      <div class="pain"><q>Новая должность, и я не понимаю, как в ней справляться</q><span>Новая роль</span></div>
+      <div class="pain"><span>Выгорание</span><q>Сил нет, а остановиться не могу. Если сбавлю темп, всё развалится</q></div>
+      <div class="pain"><span>Потеря интереса</span><q>Снаружи всё есть: должность, доход. А внутри пусто</q></div>
+      <div class="pain"><span>Призвание</span><q>Не знаю, чего хочу. Кажется, живу не свою жизнь</q></div>
+      <div class="pain"><span>Карьера</span><q>Работаю пять лет, а меня не повышают. Упёрся в потолок</q></div>
+      <div class="pain"><span>Отношения на работе</span><q>Начальник давит, с коллективом конфликты. Объясняю, а меня не слышат</q></div>
+      <div class="pain"><span>Новая роль</span><q>Новая должность, и я не понимаю, как в ней справляться</q></div>
     </div>
     <p class="biz-line">Компаниям: конфликты в команде, выгорание сотрудников, смена руководителя, переход специалиста в роль руководителя.</p>
 
@@ -329,28 +378,46 @@ footer.site ul { list-style: none; padding: 0; }
   </div>
 </section>
 
-<!-- 2. Решение -->
-<section id="how">
+<!-- 2. Мысль и решение -->
+<section class="idea" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Почему так происходит</p>
+      <h2>Вопрос о работе почти всегда — <em>вопрос о себе</em></h2>
+      <p class="lead">Работа держится на трёх опорах. Когда одна из них теряется, приходят усталость, пустота и конфликты, даже если снаружи всё в порядке.</p>
+    </div>
+    <div class="triad">
+      <div><b>хочу</b><p>Интересы и желания. То, что даёт энергию.</p><p class="lost">выгорание, пустота, «живу не свою жизнь»</p></div>
+      <div><b>могу</b><p>Способности, опыт, сильные стороны.</p><p class="lost">«смогу ли я?», страх новой роли, потолок</p></div>
+      <div><b>надо</b><p>Ценности, ожидания других, требования рынка.</p><p class="lost">чужое «надо» давит, конфликты с начальством</p></div>
+    </div>
+    <div class="promise">
+      <svg viewBox="0 0 64 56" aria-hidden="true"><circle cx="23" cy="20" r="16"></circle><circle cx="41" cy="20" r="16"></circle><circle cx="32" cy="36" r="16"></circle></svg>
+      <p>Я не даю готовых ответов: чужие ответы не работают. Я помогаю услышать своё «хочу», увидеть, что вы на самом деле можете, и отделить своё «надо» от чужого. Это занимает время, но решения, найденные так, держатся.</p>
+    </div>
+  </div>
+</section>
+
+<section>
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Как я работаю</p>
-      <h2>Три направления</h2>
-      <p class="lead">Больше 20 лет я работала в бизнесе и знаю его изнутри. Психоаналитический подход помогает увидеть то, что человек сам в себе не замечает.</p>
+      <h2>Три <em>направления</em></h2>
     </div>
     <div class="dirs">
       <div class="dir main">
-        <span class="num">1</span>
+        <span class="num">i</span>
         <h3>Индивидуальная работа</h3>
         <div class="sub"><b>Психологическое консультирование</b><ul><li>Выгорание, потеря интереса, поиск призвания</li><li>Отношения с руководителем и коллективом</li></ul></div>
         <div class="sub"><b>Бизнес-консультирование</b><ul><li>Психоаналитический коучинг</li><li>Карьерное консультирование</li><li>Менторинг</li></ul></div>
       </div>
       <div class="dir">
-        <span class="num">2</span>
+        <span class="num">ii</span>
         <h3>Групповая работа</h3>
         <ul><li>Небольшие группы с похожими запросами</li><li>Опыт других участников как ресурс</li><li>Тема первой группы: <i class="ph">уточнить</i></li></ul>
       </div>
       <div class="dir">
-        <span class="num">3</span>
+        <span class="num">iii</span>
         <h3>Для бизнеса: лидеры и&nbsp;команды</h3>
         <ul><li>Работа с руководителем и собственником</li><li>Работа с командой по заказу компании</li></ul>
       </div>
@@ -369,7 +436,7 @@ footer.site ul { list-style: none; padding: 0; }
   <div class="wrap">
     <div class="cta-text">
       <p class="eyebrow">Запись</p>
-      <h2>Начнём с&nbsp;короткой встречи</h2>
+      <h2>Начнём с&nbsp;<em>короткой встречи</em></h2>
       <p class="lead">30 минут, чтобы обсудить вашу ситуацию и понять, подходит ли вам такая работа. Ни к чему не обязывает.</p>
       <dl class="contacts-list">
         <div><dt>Telegram</dt><dd><a href="https://t.me/EktrMkh" target="_blank" rel="noopener">@EktrMkh</a></dd></div>
