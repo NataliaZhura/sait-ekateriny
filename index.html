@@ -23,7 +23,7 @@
   --accent: #7A3A4F;
   --accent-soft: #C9A3AF;
   --accent-ink: #FFFFFF;
-  --deep: #3B1F29;
+  --deep: #5A3240;
   --deep-ink: #F6ECEE;
   --deep-muted: #CDB3BB;
   --note: #F3E7C9;
@@ -159,7 +159,7 @@ section.tint { background: var(--tint); }
 
 .magnet {
   margin-top: 40px; border-radius: 8px; padding: clamp(22px, 4vw, 40px);
-  background: var(--accent); color: var(--accent-ink);
+  background: color-mix(in srgb, var(--accent) 88%, #FFFFFF); color: var(--accent-ink);
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: center;
 }
 .magnet h3 { font-size: clamp(1.4rem, 2.8vw, 1.9rem); font-style: italic; }
