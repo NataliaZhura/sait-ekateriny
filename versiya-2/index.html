@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Сайт бизнес-психоаналитика</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Commissioner:wght@300;400;500;600&display=swap">
@@ -21,11 +22,11 @@
   --muted: #6B5E61;
   --line: #E3D8D7;
   --accent: #7A3A4F;
-  --accent-soft: #C9A3AF;
+  --accent-soft: #B8977A;
   --accent-ink: #FFFFFF;
-  --deep: #5A3240;
+  --deep: #31282B;
   --deep-ink: #F6ECEE;
-  --deep-muted: #CDB3BB;
+  --deep-muted: #BDB1AD;
   --note: #F3E7C9;
   --note-ink: #5A4512;
   --font-display: "Playfair Display", "Georgia", "Times New Roman", serif;
@@ -148,18 +149,19 @@ section.tint { background: var(--tint); }
 }
 
 /* 1. Боль */
-.pains { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.pain { background: var(--surface); padding: 26px; display: grid; gap: 10px; align-content: start; transition: background .2s ease; }
-.pain:hover { background: var(--bg); }
-.pain q { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.4; quotes: "«" "»"; }
-.pain span { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.pains { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.pain { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: grid; gap: 12px; align-content: start; transition: border-color .2s ease, box-shadow .2s ease; }
+.pain:hover { border-color: var(--accent-soft); box-shadow: 0 12px 28px -20px rgba(49, 40, 43, .45); }
+.pain .ico { width: 52px; height: 52px; border-radius: 50%; background: var(--tint); color: var(--accent); display: grid; place-items: center; font-size: 1.15rem; margin-bottom: 6px; }
+.pain h3 { font-size: 1.4rem; }
+.pain p { color: var(--muted); font-size: .98rem; line-height: 1.65; }
 @media (max-width: 860px) { .pains { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .pains { grid-template-columns: 1fr; } }
 .biz-line { margin-top: 18px; color: var(--muted); font-size: .95rem; }
 
 .magnet {
   margin-top: 40px; border-radius: 8px; padding: clamp(22px, 4vw, 40px);
-  background: color-mix(in srgb, var(--accent) 88%, #FFFFFF); color: var(--accent-ink);
+  background: #5A2735; color: var(--accent-ink);
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: center;
 }
 .magnet h3 { font-size: clamp(1.4rem, 2.8vw, 1.9rem); font-style: italic; }
@@ -367,12 +369,12 @@ footer.site ul { list-style: none; padding: 0; }
       <h2>Узнаёте <em>себя?</em></h2>
     </div>
     <div class="pains">
-      <div class="pain"><span>Выгорание</span><q>Сил нет, а остановиться не могу. Если сбавлю темп, всё развалится</q></div>
-      <div class="pain"><span>Потеря интереса</span><q>Снаружи всё есть: должность, доход. А внутри пусто</q></div>
-      <div class="pain"><span>Призвание</span><q>Не знаю, чего хочу. Кажется, живу не свою жизнь</q></div>
-      <div class="pain"><span>Карьера</span><q>Работаю пять лет, а меня не повышают. Упёрся в потолок</q></div>
-      <div class="pain"><span>Отношения на работе</span><q>Начальник давит, с коллективом конфликты. Объясняю, а меня не слышат</q></div>
-      <div class="pain"><span>Новая роль</span><q>Новая должность, и я не понимаю, как в ней справляться</q></div>
+      <div class="pain"><i class="ico fa-solid fa-battery-quarter" aria-hidden="true"></i><h3>Выгорание</h3><p>«Сил нет, а остановиться не могу. Если сбавлю темп, всё развалится»</p></div>
+      <div class="pain"><i class="ico fa-solid fa-compass" aria-hidden="true"></i><h3>Потеря интереса</h3><p>«Снаружи всё есть: должность, доход. А внутри пусто»</p></div>
+      <div class="pain"><i class="ico fa-solid fa-bullseye" aria-hidden="true"></i><h3>Призвание</h3><p>«Не знаю, чего хочу. Кажется, живу не свою жизнь»</p></div>
+      <div class="pain"><i class="ico fa-solid fa-chart-line" aria-hidden="true"></i><h3>Карьера</h3><p>«Работаю пять лет, а меня не повышают. Упёрся в потолок»</p></div>
+      <div class="pain"><i class="ico fa-solid fa-users-gear" aria-hidden="true"></i><h3>Отношения на работе</h3><p>«Начальник давит, с коллективом конфликты. Объясняю, а меня не слышат»</p></div>
+      <div class="pain"><i class="ico fa-solid fa-user-tie" aria-hidden="true"></i><h3>Новая роль</h3><p>«Новая должность, и я не понимаю, как в ней справляться»</p></div>
     </div>
     <p class="biz-line">Компаниям: конфликты в команде, выгорание сотрудников, смена руководителя, переход специалиста в роль руководителя.</p>
 
