@@ -23,9 +23,10 @@
   --accent: #7A3A4F;
   --accent-soft: #B8977A;
   --accent-ink: #FFFFFF;
-  --deep: #4D3D41;
-  --deep-ink: #F7F1F1;
-  --deep-muted: #D6CBC8;
+  --deep: #DCD4CC;
+  --panel: #E9E2DA;
+  --deep-ink: #231C1E;
+  --deep-muted: #5C5154;
   --note: #F3E7C9;
   --note-ink: #5A4512;
   --font-display: "Playfair Display", "Georgia", "Times New Roman", serif;
@@ -37,14 +38,14 @@
   :root:not([data-theme="light"]) {
     --bg: #181315; --surface: #211A1C; --tint: #2A2023; --ink: #EFE7E8; --muted: #B3A4A8;
     --line: #3A2E31; --accent: #D79BAE; --accent-soft: #8C7560; --accent-ink: #1F1216;
-    --deep: #2B2124; --deep-ink: #F6ECEE; --deep-muted: #C2B4B4; --note: #3A3220; --note-ink: #F0DDB0;
+    --deep: #2B2124; --panel: #2A2023; --deep-ink: #F6ECEE; --deep-muted: #C2B4B4; --note: #3A3220; --note-ink: #F0DDB0;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #181315; --surface: #211A1C; --tint: #2A2023; --ink: #EFE7E8; --muted: #B3A4A8;
     --line: #3A2E31; --accent: #D79BAE; --accent-soft: #8C7560; --accent-ink: #1F1216;
-    --deep: #2B2124; --deep-ink: #F6ECEE; --deep-muted: #C2B4B4; --note: #3A3220; --note-ink: #F0DDB0;
+    --deep: #2B2124; --panel: #2A2023; --deep-ink: #F6ECEE; --deep-muted: #C2B4B4; --note: #3A3220; --note-ink: #F0DDB0;
   color-scheme: dark;
 }
 
@@ -161,24 +162,24 @@ section.tint { background: var(--tint); }
 
 .magnet {
   margin-top: 40px; border-radius: 8px; padding: clamp(22px, 4vw, 40px);
-  background: var(--accent); color: #FFFFFF;
+  background: var(--panel); color: var(--ink); border-left: 4px solid var(--accent);
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: center;
 }
 .magnet h3 { font-size: clamp(1.4rem, 2.8vw, 1.9rem); font-style: italic; }
-.magnet p { opacity: .92; line-height: 1.7; }
-.magnet small { opacity: .75; font-size: .8rem; }
+.magnet p { color: var(--muted); line-height: 1.7; }
+.magnet small { color: var(--muted); font-size: .8rem; }
 .magnet form { display: grid; gap: 10px; min-width: 0; }
-.magnet input[type="text"] { background: var(--surface); color: var(--ink); border: 0; }
-.magnet .check { color: var(--accent-ink); opacity: .9; }
-.magnet .btn { background: var(--surface); color: var(--accent); border-color: var(--surface); }
-.magnet .form-msg { background: color-mix(in srgb, var(--surface) 18%, transparent); color: var(--accent-ink); }
+.magnet input[type="text"] { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+.magnet .check { color: var(--muted); }
+.magnet .btn { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.magnet .form-msg { background: var(--surface); color: var(--ink); }
 @media (max-width: 760px) { .magnet { grid-template-columns: 1fr; } }
 
 /* 2. Мысль: тёмная полоса */
 .idea { background: var(--deep); color: var(--deep-ink); }
 .idea .eyebrow { color: var(--deep-muted); }
 .idea h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); max-width: 20ch; }
-.idea h2 em { color: var(--accent-soft); }
+.idea h2 em { color: var(--accent); }
 .idea .lead { color: var(--deep-muted); }
 .triad { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 48px; border-top: 1px solid color-mix(in srgb, var(--deep-ink) 22%, transparent); }
 .triad div { padding: 26px 24px 8px 0; display: grid; gap: 10px; align-content: start; }
@@ -186,14 +187,14 @@ section.tint { background: var(--tint); }
 .triad b { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1; color: var(--deep-ink); }
 .triad p { color: var(--deep-muted); font-size: .98rem; }
 .triad .lost { color: var(--deep-ink); font-size: .92rem; }
-.triad .lost::before { content: "Когда теряется: "; color: var(--accent-soft); }
+.triad .lost::before { content: "Когда теряется: "; color: var(--accent); }
 @media (max-width: 760px) {
   .triad { grid-template-columns: 1fr; }
   .triad div + div { padding-left: 0; border-left: 0; border-top: 1px solid color-mix(in srgb, var(--deep-ink) 22%, transparent); }
 }
 .idea .promise { margin-top: 44px; display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; max-width: 48rem; }
 .idea .promise svg { width: 64px; height: 56px; }
-.idea .promise svg circle { fill: none; stroke: var(--accent-soft); stroke-width: 1.2; }
+.idea .promise svg circle { fill: none; stroke: var(--accent); stroke-width: 1.2; }
 .idea .promise p { font-size: 1.12rem; line-height: 1.75; color: var(--deep-ink); }
 
 /* Направления */
