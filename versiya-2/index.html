@@ -318,6 +318,14 @@ footer.site ul { list-style: none; padding: 0; }
 .triad .tlabel { font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
 .cta .hero-actions { margin-top: 6px; }
 .more-body ul { color: var(--muted); }
+
+.idea-top { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, .8fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.idea-text { display: grid; gap: 28px; min-width: 0; }
+.idea-text .section-head { margin-bottom: 0; }
+.idea-photo { aspect-ratio: 3 / 4; width: 100%; max-width: 380px; justify-self: end; border-radius: 6px; overflow: hidden; background: var(--tint); }
+.idea-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+.about-text { display: grid; gap: 16px; max-width: var(--text); }
+@media (max-width: 800px) { .idea-top { grid-template-columns: 1fr; } .idea-photo { justify-self: start; max-width: 320px; } }
 </style>
 </head>
 <body>
@@ -409,6 +417,8 @@ footer.site ul { list-style: none; padding: 0; }
 <!-- 2. Мысль и решение -->
 <section class="idea" id="how">
   <div class="wrap">
+    <div class="idea-top">
+    <div class="idea-text">
     <div class="section-head">
       <p class="eyebrow">Почему так происходит</p>
       <h2>За вопросом о работе почти всегда стоит <em>вопрос о себе</em></h2>
@@ -418,6 +428,9 @@ footer.site ul { list-style: none; padding: 0; }
       <p>Делать то, что нравится. Из этого выбрать то, в чём вы достаточно хороши. А из этого то, за что платят.</p>
       <cite>По мысли Т. Гагина</cite>
     </blockquote>
+    </div>
+    <div class="idea-photo"><img src="foto-biblioteka-zal.jpg" alt="Екатерина Михальченко в читальном зале"></div>
+    </div>
     <div class="triad">
       <div><b>хочу</b><span class="tlabel">Чего я хочу</span><p>Интересы, <strong>желания</strong>, то, что <strong>даёт силы</strong>.</p><p class="lost"><strong>выгорание</strong>, <strong>пустота</strong>, ощущение чужой жизни</p></div>
       <div><b>могу</b><span class="tlabel">Что я умею</span><p><strong>Опыт</strong>, способности, <strong>сильные стороны</strong>.</p><p class="lost">сомнения «смогу ли я», <strong>страх новой роли</strong>, <strong>потолок</strong></p></div>
@@ -524,13 +537,10 @@ footer.site ul { list-style: none; padding: 0; }
       <details>
         <summary>Обо мне</summary>
         <div class="more-body">
-          <div class="about">
-            <div class="photo"><img src="foto-biblioteka-zal.jpg" alt="Екатерина Михальченко в читальном зале"></div>
-            <div>
+          <div class="about-text">
               <p>Больше двадцати лет я работала в бизнесе. Знаю изнутри, как живут коллектив и команда, что такое сроки, планёрки и новый начальник. Поэтому и работаю с рабочими запросами: людям не приходится мне ничего объяснять.</p>
               <p>Психоаналитическое образование помогает идти глубже. Усталость, конфликты и застой часто повторяют старые сценарии. Когда человек видит свой сценарий, у него появляется выбор.</p>
             </div>
-          </div>
         </div>
       </details>
 
