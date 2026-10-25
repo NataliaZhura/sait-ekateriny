@@ -335,6 +335,24 @@ footer.site ul { list-style: none; padding: 0; }
 .approach strong { color: var(--ink); font-weight: 600; }
 .approach em { font-family: var(--font-display); font-style: italic; font-size: 1.12em; color: var(--accent); }
 @media (max-width: 520px) { .approach { grid-template-columns: minmax(0, 1fr); } .approach-label { justify-content: flex-start; padding: 10px 20px; border-right: 0; border-bottom: 1px solid var(--accent-soft); } .approach p { padding: 16px 20px; } }
+/* Первый экран целиком помещается в окно браузера */
+@media (min-width: 901px) {
+  .hero { padding-block: clamp(24px, 4vh, 56px); }
+  .hero-text { gap: clamp(14px, 2.4vh, 24px); }
+  .statement { font-size: clamp(2.4rem, min(6.2vw, 8.2vh), 4.6rem); }
+  .portrait { max-width: min(420px, calc((100vh - 190px) * .75)); }
+}
+@media (max-width: 900px) {
+  .portrait { max-width: min(300px, calc((100svh - 160px) * .5)); }
+}
+@media (max-width: 600px) {
+  .hero { padding-block: 20px 28px; }
+  .hero-text { gap: 16px; }
+  .portrait { max-width: min(220px, calc((100svh - 160px) * .36)); }
+  .statement { font-size: clamp(2rem, 8.6vw, 2.4rem); }
+  .hero .lead { font-size: 1rem; line-height: 1.6; }
+  .hero-actions .btn { padding-block: 11px; }
+}
 </style>
 </head>
 <body>
