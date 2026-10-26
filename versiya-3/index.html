@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Екатерина Михальченко — Бизнес-психоаналитик & Консультант первых лиц</title>
+    <title>Екатерина Михальченко · психолог, психоаналитический бизнес-консультант</title>
+    <meta name="description" content="Екатерина Михальченко, психолог и психоаналитический бизнес-консультант. Выгорание, потеря интереса, призвание, карьера, отношения на работе, новая роль. Онлайн и очно, Москва.">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,9 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome & Lucide Icons -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
         tailwind.config = {
@@ -72,13 +72,6 @@
             box-shadow: 0 16px 32px -8px rgba(44, 38, 35, 0.08);
         }
 
-        /* Gold Gradient Text */
-        .gold-text {
-            background: linear-gradient(135deg, #2C2623 0%, #C59B63 60%, #B8860B 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -102,6 +95,7 @@
         .animate-float {
             animation: float-slow 4s ease-in-out infinite;
         }
+        section[id] { scroll-margin-top: 80px; }
     </style>
 </head>
 <body class="antialiased selection:bg-gold-lamp selection:text-white">
@@ -112,47 +106,46 @@
 
             <!-- Logo -->
             <a href="#" class="flex items-center gap-3 group">
-                <span class="w-10 h-10 rounded-full bg-dark-walnut text-gold-lamp flex items-center justify-center font-serif text-xl font-bold border border-gold-lamp/40 group-hover:scale-105 transition-transform">
+                <span class="w-10 h-10 shrink-0 rounded-full bg-dark-walnut text-gold-lamp flex items-center justify-center font-serif text-xl font-bold border border-gold-lamp/40 group-hover:scale-105 transition-transform">
                     ЕМ
                 </span>
                 <div class="flex flex-col">
                     <span class="font-serif text-xl tracking-wide text-dark-walnut font-semibold">Екатерина Михальченко</span>
-                    <span class="text-[10px] text-muted-text tracking-widest uppercase font-medium">Бизнес-психоаналитик</span>
+                    <span class="text-[10px] text-muted-text tracking-widest uppercase font-medium">Психолог, психоаналитический бизнес-консультант</span>
                 </div>
             </a>
 
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-7 text-xs font-semibold tracking-wider uppercase">
-                <a href="#method" class="text-body-text hover:text-gold-lamp transition-colors">Метод</a>
-                <a href="#pains" class="text-body-text hover:text-gold-lamp transition-colors">Узнаёте себя</a>
-                <a href="#directions" class="text-body-text hover:text-gold-lamp transition-colors">3 Направления</a>
+            <nav class="hidden lg:flex items-center gap-7 text-xs font-semibold tracking-wider uppercase">
+                <a href="#pains" class="text-body-text hover:text-gold-lamp transition-colors">С чем приходят</a>
+                <a href="#method" class="text-body-text hover:text-gold-lamp transition-colors">Хочу · могу · надо</a>
+                <a href="#directions" class="text-body-text hover:text-gold-lamp transition-colors">Как я работаю</a>
                 <a href="#about" class="text-body-text hover:text-gold-lamp transition-colors">Обо мне</a>
-                <a href="#quiz" class="text-body-text hover:text-gold-lamp transition-colors">Подбор формата</a>
                 <a href="#contact" class="px-6 py-2.5 rounded-full bg-dark-walnut text-ivory-bg hover:bg-gold-lamp hover:text-dark-walnut transition-all duration-300 font-semibold">
                     Записаться
                 </a>
             </nav>
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-btn" class="md:hidden text-dark-walnut p-2 focus:outline-none" aria-label="Открыть меню">
+            <button id="mobile-menu-btn" class="lg:hidden text-dark-walnut p-2 focus:outline-none" aria-label="Открыть меню">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
 
         <!-- Mobile Nav Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-ivory-card border-b border-ivory-border px-6 py-6 flex flex-col gap-4 text-sm font-medium">
-            <a href="#method" class="mobile-link py-2 border-b border-ivory-border/50 text-dark-walnut">Метод «Хочу · Могу · Надо»</a>
-            <a href="#pains" class="mobile-link py-2 border-b border-ivory-border/50 text-dark-walnut">Диагностика ситуаций</a>
-            <a href="#directions" class="mobile-link py-2 border-b border-ivory-border/50 text-dark-walnut">3 Направления работы</a>
-            <a href="#about" class="mobile-link py-2 border-b border-ivory-border/50 text-dark-walnut">О Екатерине</a>
-            <a href="#quiz" class="mobile-link py-2 border-b border-ivory-border/50 text-dark-walnut">Квиз выбора формата</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-ivory-card border-b border-ivory-border px-6 py-6 flex flex-col gap-4 text-sm font-medium">
+            <a href="#pains" class="mobile-link py-2 border-b border-ivory-border/50 text-dark-walnut">С чем приходят</a>
+            <a href="#method" class="mobile-link py-2 border-b border-ivory-border/50 text-dark-walnut">Хочу · могу · надо</a>
+            <a href="#directions" class="mobile-link py-2 border-b border-ivory-border/50 text-dark-walnut">Как я работаю</a>
+            <a href="#about" class="mobile-link py-2 border-b border-ivory-border/50 text-dark-walnut">Обо мне</a>
+            <a href="#quiz" class="mobile-link py-2 border-b border-ivory-border/50 text-dark-walnut">Подобрать формат</a>
             <a href="#contact" class="mobile-link py-3 mt-2 text-center rounded-full bg-dark-walnut text-ivory-bg font-semibold">
-                Записаться на сессию
+                Записаться на знакомство
             </a>
         </div>
     </header>
 
-    <!-- 1. HERO SECTION (PHOTO 1) -->
+    <!-- 1. HERO SECTION -->
     <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden min-h-[92vh] flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -162,56 +155,55 @@
 
                     <!-- Badge -->
                     <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-ivory-card border border-gold-lamp/40 shadow-sm">
-                        <span class="w-2.5 h-2.5 rounded-full bg-gold-lamp animate-pulse"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-gold-lamp"></span>
                         <span class="text-xs font-semibold tracking-wider text-dark-walnut uppercase">
-                            25+ лет практического опыта
+                            25+ лет в бизнесе изнутри
                         </span>
                     </div>
 
                     <!-- Main Heading -->
                     <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.12] text-dark-walnut">
-                        Бизнес-психоанализ <br>
-                        <span class="font-serif italic text-gold-lamp">для первых лиц</span> и собственников
+                        Когда «надо» заглушает <span class="font-serif italic text-gold-lamp">«хочу»</span>, работа перестаёт радовать
                     </h1>
 
                     <p class="text-base sm:text-lg text-muted-text max-w-2xl font-light leading-relaxed">
-                        Работа со скрытыми бессознательными мотивами, системными заторами в управлении и личными барьерами роста. Конфиденциальный диалог на равных.
+                        Помогаю разобраться, что стоит за усталостью, конфликтами, карьерным тупиком, и снова почувствовать, что выбор за вами. Онлайн и очно, Москва, Мясницкая.
                     </p>
 
                     <!-- Feature Key Points -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2 text-sm text-dark-walnut font-medium">
                         <div class="flex items-center gap-3">
-                            <span class="w-5 h-5 rounded-full bg-gold-lamp/20 text-gold-deep flex items-center justify-center text-xs">✓</span>
-                            <span>Глубинная диагностика бизнес-процессов</span>
+                            <span class="w-5 h-5 shrink-0 rounded-full bg-gold-lamp/20 text-gold-deep flex items-center justify-center text-xs">✓</span>
+                            <span>Магистратура НИУ ВШЭ по психоанализу</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <span class="w-5 h-5 rounded-full bg-gold-lamp/20 text-gold-deep flex items-center justify-center text-xs">✓</span>
-                            <span>Выход из повторяющихся тупиков</span>
+                            <span class="w-5 h-5 shrink-0 rounded-full bg-gold-lamp/20 text-gold-deep flex items-center justify-center text-xs">✓</span>
+                            <span>Двадцать лет управленческого опыта</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <span class="w-5 h-5 rounded-full bg-gold-lamp/20 text-gold-deep flex items-center justify-center text-xs">✓</span>
-                            <span>Сохранение личного ресурса и энергии</span>
+                            <span class="w-5 h-5 shrink-0 rounded-full bg-gold-lamp/20 text-gold-deep flex items-center justify-center text-xs">✓</span>
+                            <span>Онлайн и очно</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <span class="w-5 h-5 rounded-full bg-gold-lamp/20 text-gold-deep flex items-center justify-center text-xs">✓</span>
-                            <span>Медиация партнерских конфликтов</span>
+                            <span class="w-5 h-5 shrink-0 rounded-full bg-gold-lamp/20 text-gold-deep flex items-center justify-center text-xs">✓</span>
+                            <span>Оплата после сессии</span>
                         </div>
                     </div>
 
                     <!-- Action Buttons -->
                     <div class="pt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                         <a href="#contact" class="px-8 py-4 rounded-full bg-dark-walnut text-ivory-bg font-semibold text-center hover:bg-gold-lamp hover:text-dark-walnut transition-all duration-300 shadow-lg shadow-dark-walnut/10 flex items-center justify-center gap-3 text-xs uppercase tracking-wider">
-                            <span>Записаться на сессию</span>
+                            <span>Записаться на знакомство</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
                         </a>
-                        <a href="#quiz" class="px-8 py-4 rounded-full bg-ivory-card border border-ivory-border text-dark-walnut font-semibold text-center hover:border-gold-lamp transition-all text-xs uppercase tracking-wider">
-                            Подобрать формат
+                        <a href="https://t.me/EktrMkh" target="_blank" rel="noopener" class="px-8 py-4 rounded-full bg-ivory-card border border-ivory-border text-dark-walnut font-semibold text-center hover:border-gold-lamp transition-all text-xs uppercase tracking-wider">
+                            Написать в Telegram
                         </a>
                     </div>
 
                 </div>
 
-                <!-- Right Column Photo (photo_2026-10-24_14-14-31.jpg) -->
+                <!-- Right Column Photo: у колонны -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative max-w-md mx-auto lg:max-w-none">
 
@@ -222,14 +214,10 @@
                         <div class="relative rounded-2xl overflow-hidden border border-ivory-border shadow-2xl bg-dark-walnut group">
                             <img src="photo_2026-10-24_14-14-36.jpg" alt="Екатерина Михальченко у колонны в библиотеке" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700">
 
-                            <!-- Glass Badge floating overlay -->
-                            <div class="absolute bottom-5 left-5 right-5 p-4 rounded-xl glass-panel border border-gold-lamp/40 shadow-xl animate-float">
-                                <div class="flex items-center mb-1">
-                                    <span class="text-[10px] bg-gold-lamp/20 text-dark-walnut px-2 py-0.5 rounded font-semibold uppercase tracking-wider">25+ лет в бизнесе</span>
-                                </div>
-                                <p class="text-xs text-muted-text italic">
-                                    «Компания — это проекция бессознательного её лидера.»
-                                </p>
+                            <!-- Badge overlay -->
+                            <div class="absolute bottom-5 left-5 p-4 rounded-xl glass-panel border border-gold-lamp/40 shadow-xl animate-float">
+                                <div class="font-serif text-3xl text-dark-walnut leading-none">25+ лет</div>
+                                <div class="text-xs text-muted-text mt-1">в бизнесе изнутри</div>
                             </div>
                         </div>
 
@@ -240,179 +228,97 @@
         </div>
     </section>
 
-    <!-- 2. DIAGNOSTICS: «Узнаёте себя?» (Interactive Filter Tabs & Expandable Cards) -->
+    <!-- 2. «Узнаёте себя?» -->
     <section id="pains" class="py-20 bg-ivory-card/70 border-y border-ivory-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-14">
-                <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Диагностика ситуаций</span>
+                <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">С чем приходят</span>
                 <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-dark-walnut">
-                    Узнаете себя в этих проявлениях?
+                    Узнаёте <span class="italic text-gold-lamp">себя?</span>
                 </h2>
-                <p class="text-muted-text text-base font-light">
-                    Сильные лидеры сталкиваются с барьерами, которые нельзя решить привычными инструментами менеджмента. Переключайте категории:
-                </p>
-            </div>
-
-            <!-- Tabs Filter -->
-            <div class="flex flex-wrap justify-center gap-3 mb-10" id="pain-tabs">
-                <button onclick="filterPains('all')" class="pain-tab-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold border border-dark-walnut bg-dark-walnut text-ivory-bg transition-all">
-                    Все варианты
-                </button>
-                <button onclick="filterPains('pains')" class="pain-tab-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold border border-ivory-border bg-white text-muted-text hover:border-gold-lamp transition-all">
-                    Точечные боли
-                </button>
-                <button onclick="filterPains('system')" class="pain-tab-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold border border-ivory-border bg-white text-muted-text hover:border-gold-lamp transition-all">
-                    Системные заторы
-                </button>
-                <button onclick="filterPains('personal')" class="pain-tab-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold border border-ivory-border bg-white text-muted-text hover:border-gold-lamp transition-all">
-                    Личные тупики
-                </button>
             </div>
 
             <!-- Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <!-- Card 1 -->
-                <div class="pain-item card-wood p-8 rounded-2xl flex flex-col justify-between space-y-4" data-type="system">
-                    <div class="space-y-3">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm">
-                            <i class="fa-solid fa-chart-line text-sm"></i>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold text-dark-walnut">«Стеклянный потолок» бизнеса</h3>
-                        <p class="text-sm text-muted-text leading-relaxed">
-                            Выручка и ключевые показатели уперлись в планку. Изменение мотивации, KPI и новые топ-менеджеры не дают эффекта.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-ivory-border text-xs text-gold-deep font-medium flex items-center gap-2">
-                        <i class="fa-solid fa-key"></i>
-                        <span>Психоаналитический вектор: Скрытый страх масштабирования</span>
-                    </div>
+                <div class="card-wood p-8 rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm"><i class="fa-solid fa-battery-quarter text-sm"></i></div>
+                    <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Выгорание</h3>
+                    <p class="text-sm text-muted-text leading-relaxed">«Внутри пусто, ничего не чувствую. Не хочется идти на работу и вообще что-то делать»</p>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="pain-item card-wood p-8 rounded-2xl flex flex-col justify-between space-y-4" data-type="personal">
-                    <div class="space-y-3">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm">
-                            <i class="fa-solid fa-battery-quarter text-sm"></i>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Эмоциональное выгорание</h3>
-                        <p class="text-sm text-muted-text leading-relaxed">
-                            Внешний успех есть, но внутри — апатия, потеря вкуса к победам и постоянное чувство исчерпанности ресурсов.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-ivory-border text-xs text-gold-deep font-medium flex items-center gap-2">
-                        <i class="fa-solid fa-key"></i>
-                        <span>Психоаналитический вектор: Нарушение баланса ценностей</span>
-                    </div>
+                <div class="card-wood p-8 rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm"><i class="fa-solid fa-compass text-sm"></i></div>
+                    <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Потеря интереса</h3>
+                    <p class="text-sm text-muted-text leading-relaxed">«Раньше работа зажигала. Теперь отсиживаю день и жду пятницы»</p>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="pain-item card-wood p-8 rounded-2xl flex flex-col justify-between space-y-4" data-type="pains">
-                    <div class="space-y-3">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm">
-                            <i class="fa-solid fa-handshake-slash text-sm"></i>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Конфликт партнеров</h3>
-                        <p class="text-sm text-muted-text leading-relaxed">
-                            Скрытая борьба за влияние, разница в долгосрочном видении развития и неспособность прийти к согласию без эмоций.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-ivory-border text-xs text-gold-deep font-medium flex items-center gap-2">
-                        <i class="fa-solid fa-key"></i>
-                        <span>Психоаналитический вектор: Разносценарии собственников</span>
-                    </div>
+                <div class="card-wood p-8 rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm"><i class="fa-solid fa-bullseye text-sm"></i></div>
+                    <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Призвание</h3>
+                    <p class="text-sm text-muted-text leading-relaxed">«Не знаю, чего хочу. Будто живу чужую жизнь»</p>
                 </div>
 
-                <!-- Card 4 -->
-                <div class="pain-item card-wood p-8 rounded-2xl flex flex-col justify-between space-y-4" data-type="system">
-                    <div class="space-y-3">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm">
-                            <i class="fa-solid fa-lock text-sm"></i>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Ловушка микроменеджмента</h3>
-                        <p class="text-sm text-muted-text leading-relaxed">
-                            Вы не можете отлучиться от операционки. Попытки делегировать возвращаются срывом сроков и необходимостью переделывать.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-ivory-border text-xs text-gold-deep font-medium flex items-center gap-2">
-                        <i class="fa-solid fa-key"></i>
-                        <span>Психоаналитический вектор: Потребность в полном контроле</span>
-                    </div>
+                <div class="card-wood p-8 rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm"><i class="fa-solid fa-chart-line text-sm"></i></div>
+                    <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Карьера</h3>
+                    <p class="text-sm text-muted-text leading-relaxed">«Давно на одной должности. Повышения нет, и я не понимаю почему»</p>
                 </div>
 
-                <!-- Card 5 -->
-                <div class="pain-item card-wood p-8 rounded-2xl flex flex-col justify-between space-y-4" data-type="personal">
-                    <div class="space-y-3">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm">
-                            <i class="fa-solid fa-user-shield text-sm"></i>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Одиночество на вершине</h3>
-                        <p class="text-sm text-muted-text leading-relaxed">
-                            Вам не с кем обсудить стратегические сомнения, страхи и риск-сценарии без угрозы для авторитета перед командой.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-ivory-border text-xs text-gold-deep font-medium flex items-center gap-2">
-                        <i class="fa-solid fa-key"></i>
-                        <span>Психоаналитический вектор: Потребность в нейтральной позиции</span>
-                    </div>
+                <div class="card-wood p-8 rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm"><i class="fa-solid fa-users text-sm"></i></div>
+                    <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Отношения на работе</h3>
+                    <p class="text-sm text-muted-text leading-relaxed">«С руководителем и командой говорим на разных языках, постоянное напряжение»</p>
                 </div>
 
-                <!-- Card 6 -->
-                <div class="pain-item card-wood p-8 rounded-2xl flex flex-col justify-between space-y-4" data-type="pains">
-                    <div class="space-y-3">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm">
-                            <i class="fa-solid fa-rotate-left text-sm"></i>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Повторяющиеся ошибки</h3>
-                        <p class="text-sm text-muted-text leading-relaxed">
-                            Одинаковые грабли в найме ключевых людей, выборе контрагентов или финансовом планировании. График наступает на тот же сценарий.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-ivory-border text-xs text-gold-deep font-medium flex items-center gap-2">
-                        <i class="fa-solid fa-key"></i>
-                        <span>Психоаналитический вектор: Бессознательный паттерн</span>
-                    </div>
+                <div class="card-wood p-8 rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gold-lamp border border-gold-lamp/30 shadow-sm"><i class="fa-solid fa-briefcase text-sm"></i></div>
+                    <h3 class="font-serif text-2xl font-semibold text-dark-walnut">Новая роль</h3>
+                    <p class="text-sm text-muted-text leading-relaxed">«Меня повысили, а я не понимаю, как теперь себя вести»</p>
                 </div>
 
             </div>
+
+            <p class="mt-8 text-sm text-muted-text text-center max-w-4xl mx-auto">
+                Компаниям: конфликты в команде, выгорание сотрудников, смена руководителя, переход специалиста в роль руководителя, поведение в условиях неопределённости.
+            </p>
 
         </div>
     </section>
 
-    <!-- 3. METHODOLOGY: «ХОЧУ · МОГУ · НАДО» (PHOTO 2 + Interactive Simulator) -->
+    <!-- 3. «ХОЧУ · МОГУ · НАДО» -->
     <section id="method" class="py-20 bg-ivory-bg relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Авторская методология</span>
+                <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Почему так происходит</span>
                 <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-dark-walnut">
-                    Триптих устойчивости: «Хочу · Могу · Надо»
+                    За вопросом о работе почти всегда стоит <span class="italic text-gold-lamp">вопрос о себе</span>
                 </h2>
                 <p class="text-muted-text text-base font-light">
-                    Гармония и масштаб бизнеса достигаются на стыке трех фундаментальных векторов:
+                    В работе хорошо, когда сходятся три вещи: чего вы хотите, что умеете и чего от вас ждут. Если одна выпадает, приходят усталость, пустота или конфликты. Даже когда со стороны всё благополучно.
                 </p>
             </div>
 
-            <!-- Grid with Photo 2 (photo_2026-10-24_14-14-36.jpg) -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                 <!-- Left Photo Container -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-2xl overflow-hidden border border-ivory-border shadow-2xl bg-dark-walnut">
                         <img src="photo_2026-10-24_14-14-31.jpg" alt="Екатерина Михальченко в библиотеке" class="w-full h-auto object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-walnut/70 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-6 left-6 right-6 text-ivory-bg space-y-1">
-                            <span class="text-xs text-gold-lamp font-semibold uppercase tracking-wider">Системная опора</span>
-                            <p class="font-serif text-lg italic">«Если выпадает хотя бы один элемент, бизнес теряет управляемость.»</p>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-walnut/80 via-dark-walnut/10 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-ivory-bg space-y-2">
+                            <p class="font-serif text-lg italic leading-snug">«В жизни нужно делать то, что тебе нравится делать. А из этого то, в чём ты можешь быть лучшим¹. А из этого то, за что платят деньги»</p>
+                            <span class="block text-xs text-gold-lamp font-semibold uppercase tracking-wider">Т. Гагин</span>
+                            <span class="block text-[11px] text-ivory-bg/80">¹ А мы говорим: «достаточно хорошим»</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Interactive Methodology Switcher -->
+                <!-- Right Interactive Switcher -->
                 <div class="lg:col-span-7 space-y-6">
 
-                    <!-- Vector Selector Buttons -->
                     <div class="grid grid-cols-3 gap-3 p-1.5 rounded-2xl bg-ivory-card border border-ivory-border">
                         <button onclick="setVector('want')" id="vec-btn-want" class="py-3 rounded-xl font-serif text-xl font-bold transition-all bg-dark-walnut text-gold-lamp shadow-sm">
                             ХОЧУ
@@ -425,21 +331,21 @@
                         </button>
                     </div>
 
-                    <!-- Dynamic Vector Content Display -->
                     <div id="vector-display" class="card-wood p-8 rounded-2xl space-y-4 border border-gold-lamp/30">
                         <!-- Populated by JS -->
                     </div>
 
-                    <!-- Disbalance Simulator Warning Box -->
                     <div class="p-6 rounded-2xl border border-gold-lamp/40 bg-white/80 space-y-2">
                         <div class="flex items-center gap-2 text-gold-deep font-semibold text-xs uppercase tracking-wider">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <span>Что происходит при дисбалансе?</span>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span>Если этого нет</span>
                         </div>
-                        <p id="disbalance-text" class="text-xs sm:text-sm text-muted-text leading-relaxed">
-                            Если работает только «Надо» и «Могу», но нет «Хочу» — наступает глубокая апатия, саботаж собственника и выгорание команды.
-                        </p>
+                        <p id="disbalance-text" class="text-xs sm:text-sm text-muted-text leading-relaxed"></p>
                     </div>
+
+                    <p class="text-sm sm:text-base text-dark-walnut leading-relaxed">
+                        Готовых ответов я не даю: чужие ответы не работают. Я создаю пространство, где вы можете исследовать себя, найти скрытые ресурсы и прийти к устойчивым результатам. Это не быстро, но такие решения потом держатся.
+                    </p>
 
                 </div>
 
@@ -448,21 +354,26 @@
         </div>
     </section>
 
-    <!-- 4. THREE DIRECTIONS (2-Column Grid Layout) -->
+    <!-- 4. THREE DIRECTIONS -->
     <section id="directions" class="py-20 bg-ivory-card/60 border-t border-ivory-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Специализация</span>
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Как я работаю</span>
                 <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-dark-walnut">
-                    Три ключевых направления работы
+                    Три <span class="italic text-gold-lamp">направления</span>
                 </h2>
-                <p class="text-muted-text text-base font-light">
-                    Четкая двухколоночная структура решения задач первого лица:
+                <p class="text-muted-text text-base font-light">Индивидуально, в группе или с командой.</p>
+            </div>
+
+            <!-- Подход -->
+            <div class="max-w-3xl mx-auto mb-12 grid grid-cols-1 sm:grid-cols-[110px_1fr] rounded-2xl overflow-hidden border border-gold-lamp/50 bg-white">
+                <div class="flex items-center justify-center sm:justify-center bg-ivory-card border-b sm:border-b-0 sm:border-r border-gold-lamp/50 py-3 text-xs font-semibold uppercase tracking-widest text-gold-deep">Подход</div>
+                <p class="p-6 text-sm sm:text-base text-muted-text leading-relaxed">
+                    <strong class="text-dark-walnut font-semibold">Психоаналитический</strong>, а не классический: <strong class="text-dark-walnut font-semibold">без готового плана действий</strong>. Разбираемся, <em class="font-serif text-lg text-gold-deep">что на самом деле мешает</em> действовать.
                 </p>
             </div>
 
-            <!-- Two-Column Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
                 <!-- Direction 1 -->
@@ -470,37 +381,30 @@
                     <div class="space-y-4">
                         <div class="flex items-center justify-between border-b border-ivory-border pb-3">
                             <span class="text-xs font-mono text-gold-lamp uppercase tracking-widest font-semibold">Направление 01</span>
-                            <span class="w-8 h-8 rounded-full bg-white text-dark-walnut flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-building-user"></i></span>
+                            <span class="w-8 h-8 rounded-full bg-white text-dark-walnut flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-user"></i></span>
                         </div>
-                        <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-dark-walnut">
-                            Стратегический психоанализ компании
-                        </h3>
-                        <p class="text-sm text-muted-text leading-relaxed">
-                            Исследование бизнеса как единого психологического организма. Выявление неочевидных барьеров, блокирующих рост выручки и масштабирование.
-                        </p>
-
-                        <div class="space-y-2 pt-2">
-                            <span class="text-xs font-semibold uppercase text-dark-walnut tracking-wider">Ключевые результаты:</span>
-                            <ul class="text-sm text-body-text space-y-2">
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i>
-                                    <span>Устранение скрытого сопротивления изменениям</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i>
-                                    <span>Оптимизация неэффективных сценариев управления</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i>
-                                    <span>Повышение управляемости на всех уровнях</span>
-                                </li>
-                            </ul>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-dark-walnut">Индивидуальная работа</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                            <div class="space-y-2">
+                                <span class="text-xs font-semibold uppercase text-dark-walnut tracking-wider">Психологическое консультирование</span>
+                                <ul class="text-sm text-body-text space-y-2">
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Личные запросы</span></li>
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Отношения с людьми, в том числе на работе</span></li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2">
+                                <span class="text-xs font-semibold uppercase text-dark-walnut tracking-wider">Психоаналитическое бизнес-консультирование</span>
+                                <ul class="text-sm text-body-text space-y-2">
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Психоаналитический коучинг</span></li>
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Карьерное консультирование</span></li>
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Менторинг</span></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-
                     <div class="pt-6 border-t border-ivory-border flex items-center justify-between">
-                        <span class="text-xs text-muted-text">Индивидуальный формат</span>
-                        <a href="#quiz" onclick="selectQuizDirection('Бизнес')" class="text-xs font-semibold text-dark-walnut hover:text-gold-lamp uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="text-xs text-muted-text">Онлайн и очно</span>
+                        <a href="#quiz" onclick="selectQuizDirection('Работа и карьера')" class="text-xs font-semibold text-dark-walnut hover:text-gold-lamp uppercase tracking-wider flex items-center gap-1.5">
                             <span>Подобрать формат</span>
                             <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
@@ -512,121 +416,119 @@
                     <div class="space-y-4">
                         <div class="flex items-center justify-between border-b border-ivory-border pb-3">
                             <span class="text-xs font-mono text-gold-lamp uppercase tracking-widest font-semibold">Направление 02</span>
-                            <span class="w-8 h-8 rounded-full bg-white text-dark-walnut flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-user-gear"></i></span>
+                            <span class="w-8 h-8 rounded-full bg-white text-dark-walnut flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-people-group"></i></span>
                         </div>
-                        <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-dark-walnut">
-                            Личная эффективность и устойчивость
-                        </h3>
-                        <p class="text-sm text-muted-text leading-relaxed">
-                            Индивидуальное сопровождение лидера. Работа с эмоциональным выгоранием, восстановлением ресурсного состояния и принятием ключевых решений.
-                        </p>
-
-                        <div class="space-y-2 pt-2">
-                            <span class="text-xs font-semibold uppercase text-dark-walnut tracking-wider">Ключевые результаты:</span>
-                            <ul class="text-sm text-body-text space-y-2">
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i>
-                                    <span>Уверенность при принятии сложных решений</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i>
-                                    <span>Возвращение энергии и драйва к деятельности</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i>
-                                    <span>Баланс между личной жизнью и бизнесом</span>
-                                </li>
-                            </ul>
-                        </div>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-dark-walnut">Групповая работа</h3>
+                        <ul class="text-sm text-body-text space-y-2 pt-2">
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Небольшие группы с похожими запросами</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Опыт других участников помогает увидеть своё</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Тема первой группы: выгорание</span></li>
+                        </ul>
                     </div>
-
                     <div class="pt-6 border-t border-ivory-border flex items-center justify-between">
-                        <span class="text-xs text-muted-text">1-on-1 сессии</span>
-                        <a href="#quiz" onclick="selectQuizDirection('Личность')" class="text-xs font-semibold text-dark-walnut hover:text-gold-lamp uppercase tracking-wider flex items-center gap-1.5">
-                            <span>Подобрать формат</span>
+                        <span class="text-xs text-muted-text">Небольшие группы</span>
+                        <a href="#contact" class="text-xs font-semibold text-dark-walnut hover:text-gold-lamp uppercase tracking-wider flex items-center gap-1.5">
+                            <span>Узнать о группе</span>
                             <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Direction 3 (Wide Spanning) -->
-                <div class="lg:col-span-2 card-wood p-8 sm:p-10 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="lg:col-span-2 card-wood p-8 sm:p-10 rounded-2xl flex flex-col md:flex-row items-start justify-between gap-8">
                     <div class="space-y-4 md:w-2/3">
                         <div class="flex items-center justify-between border-b border-ivory-border pb-3">
                             <span class="text-xs font-mono text-gold-lamp uppercase tracking-widest font-semibold">Направление 03</span>
-                            <span class="w-8 h-8 rounded-full bg-white text-dark-walnut flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-handshake"></i></span>
+                            <span class="w-8 h-8 rounded-full bg-white text-dark-walnut flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-building"></i></span>
                         </div>
-                        <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-dark-walnut">
-                            Медиация корпоративных конфликтов и культура
-                        </h3>
-                        <p class="text-sm text-muted-text leading-relaxed">
-                            Урегулирование споров между собственниками и акционерами, оздоровление атмосферы в топ-команде и построение экологичных коммуникаций.
-                        </p>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-dark-walnut">Для бизнеса: лидеры и команды</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <span class="text-xs font-semibold uppercase text-dark-walnut tracking-wider">Руководителю и собственнику</span>
+                                <ul class="text-sm text-body-text space-y-2">
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Выгорание и потеря интереса к своему делу</span></li>
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Решения, которые долго откладываются</span></li>
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Делегирование при перегрузке</span></li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2">
+                                <span class="text-xs font-semibold uppercase text-dark-walnut tracking-wider">Команде</span>
+                                <ul class="text-sm text-body-text space-y-2">
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Конфликты, скрытые и открытые</span></li>
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Потеря вовлечённости</span></li>
+                                    <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-gold-lamp mt-1 text-xs"></i><span>Новый руководитель или новый состав</span></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="md:w-1/3 w-full p-6 rounded-xl bg-white border border-ivory-border space-y-4">
-                        <div class="text-xs font-semibold text-gold-deep uppercase tracking-wider">Психоаналитическая медиация</div>
+                        <div class="text-xs font-semibold text-gold-deep uppercase tracking-wider">Как начинаем</div>
                         <p class="text-xs text-muted-text leading-relaxed">
-                            Сохранение партнерских отношений, капитала и ключевых топов при прохождении сложных кризисных этапов.
+                            Сначала встречаемся с заказчиком: уточняем задачу, участников и ожидаемый результат. Содержание индивидуальных встреч остаётся конфиденциальным.
                         </p>
                         <a href="#contact" class="block text-center py-3 rounded-full bg-dark-walnut text-ivory-bg hover:bg-gold-lamp hover:text-dark-walnut transition-all text-xs uppercase tracking-wider font-semibold">
-                            Запросить медиацию
+                            Обсудить задачу
                         </a>
                     </div>
                 </div>
 
             </div>
 
+            <!-- Формат встреч -->
+            <div class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-ivory-border bg-ivory-border">
+                <div class="bg-white p-5 space-y-1"><div class="font-serif text-xl text-dark-walnut">Знакомство</div><p class="text-xs text-muted-text">до тридцати минут: обсуждаем вашу ситуацию и выбираем формат</p></div>
+                <div class="bg-white p-5 space-y-1"><div class="font-serif text-xl text-dark-walnut">Пятьдесят минут</div><p class="text-xs text-muted-text">длится одна сессия</p></div>
+                <div class="bg-white p-5 space-y-1"><div class="font-serif text-xl text-dark-walnut">Частота встреч</div><p class="text-xs text-muted-text">психологическое консультирование: до двух раз в неделю<br>бизнес-консультирование: раз в неделю</p></div>
+                <div class="bg-white p-5 space-y-1"><div class="font-serif text-xl text-dark-walnut">Оплата после сессии</div><p class="text-xs text-muted-text">без пакетов и предоплаты</p></div>
+            </div>
+
         </div>
     </section>
 
-    <!-- 5. ABOUT EKATERINA & QUALIFICATION (PHOTO 3) -->
+    <!-- 5. ABOUT -->
     <section id="about" class="py-20 bg-ivory-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-                <!-- Photo 3 Container (photo_2026-10-24_14-14-41.jpg) -->
                 <div class="lg:col-span-5 relative order-2 lg:order-1">
                     <div class="rounded-2xl overflow-hidden border border-ivory-border shadow-2xl bg-dark-walnut">
-                        <img src="photo_2026-10-24_14-14-41.jpg" alt="Екатерина Михальченко между столами библиотеки" class="w-full h-auto object-cover">
+                        <img src="photo_2026-10-24_14-14-41.jpg" alt="Екатерина Михальченко в читальном зале" class="w-full h-auto object-cover">
                     </div>
                 </div>
 
-                <!-- Right Text Content -->
                 <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
-                    <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Квалификация & Опыт</span>
+                    <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Обо мне</span>
                     <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-dark-walnut">
-                        Глубинный подход к задачам высокой ответственности
+                        Знаю работу <span class="italic text-gold-lamp">изнутри</span>
                     </h2>
 
-                    <div class="space-y-4 text-sm text-muted-text leading-relaxed font-light">
+                    <div class="space-y-4 text-sm sm:text-base text-muted-text leading-relaxed font-light">
                         <p>
-                            Моя практика объединяет высшее психологическое и экономическое образование, а также 25-летний опыт взаимодействия с собственниками крупных и средних бизнесов.
+                            Больше двадцати пяти лет я работаю в бизнесе, из них двадцать на управленческих должностях. Знаю изнутри, как живут коллектив и команда, что такое сроки, планёрки и новый начальник. Поэтому могу посмотреть на ситуацию и глазами сотрудника, и глазами руководителя. Объяснять мне, как устроена работа, не придётся.
                         </p>
                         <p>
-                            В отличие от стандартного коучинга, работающего с поверхностными целями, психоанализ бизнеса взаимодействует с <strong class="text-dark-walnut font-semibold">фундаментальными причинами</strong> заторов, устраняя их раз и навсегда.
+                            Психоаналитическое образование помогает идти глубже. Усталость, конфликты и застой часто повторяют старые сценарии. <strong class="text-dark-walnut font-semibold">Когда человек находит эти связи, у него появляется выбор.</strong>
                         </p>
                     </div>
 
-                    <!-- Principles Bullets -->
+                    <!-- Образование -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                         <div class="p-4 rounded-xl bg-ivory-card border border-ivory-border space-y-1">
-                            <div class="text-xs font-semibold text-dark-walnut uppercase">100% Конфиденциальность</div>
-                            <p class="text-xs text-muted-text">Абсолютная защита личных и корпоративных данных.</p>
+                            <div class="text-xs font-semibold text-dark-walnut uppercase">С 2025 по 2027 год</div>
+                            <p class="text-xs text-muted-text">НИУ ВШЭ, магистратура «Психоанализ и психоаналитическое бизнес-консультирование»</p>
                         </div>
                         <div class="p-4 rounded-xl bg-ivory-card border border-ivory-border space-y-1">
-                            <div class="text-xs font-semibold text-dark-walnut uppercase">Работа на равных</div>
-                            <p class="text-xs text-muted-text">Понимание реалий ведения бизнеса в России.</p>
+                            <div class="text-xs font-semibold text-dark-walnut uppercase">Практика с 2025 года</div>
+                            <p class="text-xs text-muted-text">Проект ВШЭ «Доступный коучинг»: индивидуальная, групповая и корпоративная работа</p>
                         </div>
-                    </div>
-
-                    <!-- Micro Photo Gallery Fragment -->
-                    <div class="pt-4 flex items-center gap-4">
-                        <span class="text-xs font-semibold text-muted-text uppercase tracking-wider">Галерея атмосферы:</span>
-                        <div class="flex -space-x-3">
-                            <img src="photo_2026-10-24_14-14-31.jpg" class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm">
-                            <img src="photo_2026-10-24_14-14-36.jpg" class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm">
-                            <img src="photo_2026-10-24_14-14-41.jpg" class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm">
+                        <div class="p-4 rounded-xl bg-ivory-card border border-ivory-border space-y-1">
+                            <div class="text-xs font-semibold text-dark-walnut uppercase">Регулярно</div>
+                            <p class="text-xs text-muted-text">Супервизии и интервизии</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-ivory-card border border-ivory-border space-y-1">
+                            <div class="text-xs font-semibold text-dark-walnut uppercase">Первое образование</div>
+                            <p class="text-xs text-muted-text">Экономика и управление на предприятии, экономист-менеджер</p>
                         </div>
                     </div>
 
@@ -636,87 +538,81 @@
         </div>
     </section>
 
-    <!-- 6. INTERACTIVE QUIZ / FORMAT CALCULATOR -->
+    <!-- 6. QUIZ -->
     <section id="quiz" class="py-20 bg-ivory-card/80 border-y border-ivory-border">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="card-wood p-8 sm:p-12 rounded-3xl border border-gold-lamp/30 relative overflow-hidden">
 
                 <div class="text-center space-y-3 mb-10">
-                    <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Интерактивный селектор</span>
+                    <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Подбор формата</span>
                     <h2 class="font-serif text-3xl sm:text-4xl font-normal text-dark-walnut">
-                        Подберите оптимальный формат взаимодействия
+                        С чего начать?
                     </h2>
                     <p class="text-xs sm:text-sm text-muted-text max-w-lg mx-auto">
-                        Ответьте на 3 вопроса, чтобы рассчитать наиболее эффективный формат консультации:
+                        Два вопроса, чтобы понять, какой формат вам подойдёт.
                     </p>
                 </div>
 
-                <!-- Quiz Container -->
                 <div id="quiz-box" class="space-y-8 max-w-2xl mx-auto">
 
-                    <!-- Progress Bar -->
                     <div class="w-full bg-ivory-border/60 h-1.5 rounded-full overflow-hidden">
                         <div id="quiz-progress" class="bg-gold-lamp h-full w-1/3 transition-all duration-300"></div>
                     </div>
 
                     <!-- Step 1 -->
                     <div id="quiz-step-1" class="quiz-step space-y-4">
-                        <div class="text-sm font-semibold text-dark-walnut uppercase tracking-wider">Шаг 1 из 3: Какая область требует решения в первую очередь?</div>
+                        <div class="text-sm font-semibold text-dark-walnut uppercase tracking-wider">Вопрос 1 из 2: о чём хочется поговорить?</div>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <button onclick="selectQuizStep1('Бизнес и показатели')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
-                                <i class="fa-solid fa-chart-pie text-gold-lamp text-lg block mb-2"></i>
-                                <span>Бизнес и стратегия компании</span>
-                            </button>
                             <button onclick="selectQuizStep1('Личное состояние')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
-                                <i class="fa-solid fa-user text-gold-lamp text-lg block mb-2"></i>
-                                <span>Личное состояние и энергия</span>
+                                <i class="fa-solid fa-battery-quarter text-gold-lamp text-lg block mb-2"></i>
+                                <span>Моё состояние: усталость, пустота, нет интереса</span>
                             </button>
-                            <button onclick="selectQuizStep1('Команда и партнеры')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
+                            <button onclick="selectQuizStep1('Работа и карьера')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
+                                <i class="fa-solid fa-chart-line text-gold-lamp text-lg block mb-2"></i>
+                                <span>Работа и карьера: рост, новая роль, призвание</span>
+                            </button>
+                            <button onclick="selectQuizStep1('Команда и компания')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
                                 <i class="fa-solid fa-users text-gold-lamp text-lg block mb-2"></i>
-                                <span>Партнеры и топ-команда</span>
+                                <span>Команда и компания: я руководитель или собственник</span>
                             </button>
                         </div>
                     </div>
 
                     <!-- Step 2 -->
                     <div id="quiz-step-2" class="quiz-step hidden space-y-4">
-                        <div class="text-sm font-semibold text-dark-walnut uppercase tracking-wider">Шаг 2 из 3: Уровень срочности задачи?</div>
+                        <div class="text-sm font-semibold text-dark-walnut uppercase tracking-wider">Вопрос 2 из 2: как давно это длится?</div>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <button onclick="selectQuizStep2('Критический / Нужен разбор')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
+                            <button onclick="selectQuizStep2('Острая ситуация сейчас')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
                                 <i class="fa-solid fa-fire text-gold-lamp text-lg block mb-2"></i>
-                                <span>Срочно (Острый кризис / Конфликт)</span>
+                                <span>Остро, прямо сейчас</span>
                             </button>
-                            <button onclick="selectQuizStep2('Плановый / Масштабирование')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
+                            <button onclick="selectQuizStep2('Давно тянется')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
+                                <i class="fa-solid fa-hourglass-half text-gold-lamp text-lg block mb-2"></i>
+                                <span>Давно тянется</span>
+                            </button>
+                            <button onclick="selectQuizStep2('Хочу разобраться заранее')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
                                 <i class="fa-solid fa-compass text-gold-lamp text-lg block mb-2"></i>
-                                <span>Плановый (Застой / Развитие)</span>
-                            </button>
-                            <button onclick="selectQuizStep2('Профилактика')" class="quiz-opt-btn p-5 rounded-xl bg-white border border-ivory-border hover:border-gold-lamp text-left text-xs font-semibold text-dark-walnut transition-all">
-                                <i class="fa-solid fa-shield text-gold-lamp text-lg block mb-2"></i>
-                                <span>Профилактика выгорания</span>
+                                <span>Хочу разобраться заранее</span>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Step 3: Result -->
+                    <!-- Result -->
                     <div id="quiz-step-3" class="quiz-step hidden space-y-6 text-center">
                         <div class="p-6 rounded-2xl bg-white border border-gold-lamp/40 space-y-3">
-                            <span class="text-xs font-semibold text-gold-deep uppercase tracking-wider">Рекомендуемый формат:</span>
-                            <h3 id="quiz-result-title" class="font-serif text-3xl font-semibold text-dark-walnut">
-                                Стратегический психоаналитический аудит
-                            </h3>
-                            <p id="quiz-result-desc" class="text-xs text-muted-text max-w-md mx-auto">
-                                Включает диагностическую сессию 50 минут, разбор системных заторов и дорожную карту работы.
-                            </p>
+                            <span class="text-xs font-semibold text-gold-deep uppercase tracking-wider">Вам подойдёт</span>
+                            <h3 id="quiz-result-title" class="font-serif text-3xl font-semibold text-dark-walnut"></h3>
+                            <p id="quiz-result-desc" class="text-xs sm:text-sm text-muted-text max-w-md mx-auto"></p>
                         </div>
 
                         <div class="flex flex-col sm:flex-row justify-center gap-4">
-                            <a id="quiz-tg-link" target="_blank" href="#" class="px-6 py-3.5 rounded-full bg-[#229ED9] text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+                            <a id="quiz-tg-link" target="_blank" rel="noopener" href="https://t.me/EktrMkh" class="px-6 py-3.5 rounded-full bg-[#229ED9] text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
                                 <i class="fa-brands fa-telegram text-base"></i>
-                                <span>Написать в Telegram</span>
+                                <span>Написать в Telegram</span>
                             </a>
-                            <a id="quiz-wa-link" target="_blank" href="#" class="px-6 py-3.5 rounded-full bg-[#25D366] text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+                            <a id="quiz-wa-link" target="_blank" rel="noopener" href="https://wa.me/79169007170" class="px-6 py-3.5 rounded-full bg-[#25D366] text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
                                 <i class="fa-brands fa-whatsapp text-base"></i>
-                                <span>Написать в WhatsApp</span>
+                                <span>Написать в WhatsApp</span>
                             </a>
                         </div>
                     </div>
@@ -727,52 +623,72 @@
         </div>
     </section>
 
-    <!-- 7. CONTACT & FORM SECTION -->
+    <!-- 7. CONTACT -->
     <section id="contact" class="py-20 bg-ivory-bg">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-gold-lamp/30 shadow-xl">
 
                 <div class="text-center space-y-3 mb-10">
-                    <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Прямая связь</span>
+                    <span class="text-xs font-semibold tracking-widest text-gold-lamp uppercase">Запись</span>
                     <h2 class="font-serif text-3xl sm:text-4xl font-normal text-dark-walnut">
-                        Записаться на конфиденциальную встреча
+                        Начнём со <span class="italic text-gold-lamp">знакомства</span>
                     </h2>
                     <p class="text-xs sm:text-sm text-muted-text max-w-lg mx-auto">
-                        Оставьте заявку, и мы согласуем удобное время сессии в течение рабочего дня.
+                        Короткая встреча, чтобы обсудить вашу ситуацию и понять, подойдёт ли вам такая работа. Ни к чему не обязывает.
+                    </p>
+                    <p class="text-xs sm:text-sm text-dark-walnut">
+                        <a href="https://t.me/EktrMkh" target="_blank" rel="noopener" class="underline hover:text-gold-lamp">Telegram @EktrMkh</a>
+                        &nbsp;·&nbsp;
+                        <a href="https://wa.me/79169007170" target="_blank" rel="noopener" class="underline hover:text-gold-lamp">WhatsApp +7 916 900-71-70</a>
                     </p>
                 </div>
 
                 <form id="contact-form" onsubmit="submitContactForm(event)" class="space-y-4 max-w-xl mx-auto">
                     <div>
-                        <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2">Ваше имя</label>
-                        <input id="cf-name" type="text" required placeholder="Александр" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
+                        <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2" for="cf-name">Как к вам обращаться</label>
+                        <input id="cf-name" type="text" required autocomplete="name" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2">Телефон / WhatsApp</label>
-                            <input id="cf-phone" type="tel" required placeholder="+7 (999) 000-00-00" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
+                            <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2" for="cf-phone">Телефон</label>
+                            <input id="cf-phone" type="tel" required placeholder="+7" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2">Telegram</label>
+                            <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2" for="cf-tg">Telegram</label>
                             <input id="cf-tg" type="text" placeholder="@username" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2">Суть запроса</label>
-                        <textarea id="cf-msg" rows="3" placeholder="Кратко о задаче или ситуации..." class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm resize-none"></textarea>
+                        <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2" for="cf-topic">Что вас интересует</label>
+                        <select id="cf-topic" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
+                            <option>Индивидуальная работа</option>
+                            <option>Групповая работа</option>
+                            <option>Для бизнеса: лидеры и команды</option>
+                            <option>Пока не знаю, хочу обсудить</option>
+                        </select>
                     </div>
 
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2" for="cf-msg">Коротко о ситуации (необязательно)</label>
+                        <textarea id="cf-msg" rows="3" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm resize-none"></textarea>
+                    </div>
+
+                    <label class="flex items-start gap-3 text-xs text-muted-text" for="cf-consent">
+                        <input id="cf-consent" type="checkbox" required class="mt-0.5">
+                        <span>Даю согласие на обработку персональных данных согласно политике конфиденциальности</span>
+                    </label>
+
                     <button type="submit" class="w-full py-4 rounded-xl bg-dark-walnut text-ivory-bg font-semibold uppercase tracking-wider text-xs hover:bg-gold-lamp hover:text-dark-walnut transition-all duration-300">
-                        Отправить запрос
+                        Отправить заявку
                     </button>
                 </form>
 
                 <div id="contact-success" class="hidden text-center py-8 space-y-3">
                     <div class="w-12 h-12 rounded-full bg-gold-lamp text-white flex items-center justify-center mx-auto text-xl">✓</div>
-                    <h3 class="font-serif text-2xl text-dark-walnut">Заявка принята</h3>
-                    <p class="text-xs text-muted-text">Открылся WhatsApp с готовым сообщением. Нажмите «Отправить», чтобы Екатерина получила заявку. Если WhatsApp не открылся, напишите в <a href="https://t.me/EktrMkh" target="_blank" rel="noopener" class="underline">Telegram @EktrMkh</a>.</p>
+                    <h3 class="font-serif text-2xl text-dark-walnut">Почти готово</h3>
+                    <p class="text-xs text-muted-text">Открылся WhatsApp с готовым сообщением. Нажмите «Отправить», чтобы Екатерина получила заявку. Если WhatsApp не открылся, напишите в <a href="https://t.me/EktrMkh" target="_blank" rel="noopener" class="underline">Telegram @EktrMkh</a>.</p>
                 </div>
 
             </div>
@@ -781,93 +697,77 @@
 
     <!-- FOOTER -->
     <footer class="py-10 bg-dark-walnut text-ivory-bg/70 text-xs border-t border-gold-lamp/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <span class="font-serif text-base text-gold-lamp font-semibold">ЕМ</span>
-                <span>© 2026 Екатерина Михальченко. Все права защищены.</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="space-y-1">
+                <div class="flex items-center gap-3">
+                    <span class="font-serif text-base text-gold-lamp font-semibold">ЕМ</span>
+                    <span>Екатерина Михальченко · психолог, психоаналитический бизнес-консультант</span>
+                </div>
+                <div>Самозанятая (НПД), ИНН 631405600910 · +7 916 900-71-70 · <a href="https://t.me/EktrMkh" target="_blank" rel="noopener" class="hover:text-gold-lamp">Telegram @EktrMkh</a></div>
             </div>
-            <div class="flex gap-6">
-                <a href="#" class="hover:text-gold-lamp transition-colors">Политика конфиденциальности</a>
-                <a href="#" class="hover:text-gold-lamp transition-colors">Конфиденциальное соглашение</a>
+            <div class="flex flex-wrap gap-6">
+                <span class="opacity-60">Политика обработки персональных данных</span>
+                <span class="opacity-60">Договор-оферта</span>
             </div>
         </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS -->
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
         // Mobile Nav Toggle
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
-        // Diagnostics Tabs Filter
-        function filterPains(category) {
-            const btns = document.querySelectorAll('.pain-tab-btn');
-            btns.forEach(b => {
-                b.classList.remove('bg-dark-walnut', 'text-ivory-bg', 'border-dark-walnut');
-                b.classList.add('bg-white', 'text-muted-text', 'border-ivory-border');
-            });
-            event.target.classList.remove('bg-white', 'text-muted-text', 'border-ivory-border');
-            event.target.classList.add('bg-dark-walnut', 'text-ivory-bg', 'border-dark-walnut');
-
-            const items = document.querySelectorAll('.pain-item');
-            items.forEach(item => {
-                if (category === 'all' || item.dataset.type === category) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        // Methodology Vector Data Switcher
+        // Хочу · могу · надо
         const vectorData = {
             want: {
-                title: 'Вектор «ХОЧУ» — Истинная мотивация',
-                desc: 'Понимание реальных, а не навязанных желаний лидера. Выход из чужих концепций успеха и возвращение живой энергии в бизнес.',
-                disbalance: 'Без «Хочу»: Давление обязанностей и регулярное выгорание, несмотря на высокие прибыли.'
+                title: 'Хочу: чего я хочу',
+                desc: 'Интересы, <strong class="text-dark-walnut">желания</strong>, то, что <strong class="text-dark-walnut">даёт силы</strong>.',
+                disbalance: 'Без «хочу» приходят выгорание, пустота, ощущение чужой жизни.'
             },
             can: {
-                title: 'Вектор «МОГУ» — Психологический капитал',
-                desc: 'Раскрытие внутренних ресурсов, устойчивость к высокой неопределенности, емкость для принятия миллиардных решений.',
-                disbalance: 'Без «Могу»: Высокие амбиции без возможности выдержать нагрузку приводят к срыву договоренностей.'
+                title: 'Могу: что я умею',
+                desc: '<strong class="text-dark-walnut">Опыт</strong>, способности, <strong class="text-dark-walnut">сильные стороны</strong>.',
+                disbalance: 'Без «могу» появляются сомнения «смогу ли я», страх новой роли, потолок.'
             },
             must: {
-                title: 'Вектор «НАДО» — Реальность бизнеса',
-                desc: 'Точная синхронизация стремлений лидера с финансовыми целями компании, требованиями рынка и интересами партнеров.',
-                disbalance: 'Без «Надо»: Визионерство без заземления в бизнес-процессы и операционный аудит.'
+                title: 'Надо: чего от меня ждут',
+                desc: '<strong class="text-dark-walnut">Ожидания</strong> руководителя, рынка, близких.',
+                disbalance: 'Без «надо» чужие ожидания давят, начинаются конфликты с начальством.'
             }
         };
 
         function setVector(type) {
             ['want', 'can', 'must'].forEach(v => {
                 const btn = document.getElementById(`vec-btn-${v}`);
-                if (v === type) {
-                    btn.className = 'py-3 rounded-xl font-serif text-xl font-bold transition-all bg-dark-walnut text-gold-lamp shadow-sm';
-                } else {
-                    btn.className = 'py-3 rounded-xl font-serif text-xl font-bold transition-all text-muted-text hover:text-dark-walnut';
-                }
+                btn.className = v === type
+                    ? 'py-3 rounded-xl font-serif text-xl font-bold transition-all bg-dark-walnut text-gold-lamp shadow-sm'
+                    : 'py-3 rounded-xl font-serif text-xl font-bold transition-all text-muted-text hover:text-dark-walnut';
             });
-
             const data = vectorData[type];
             document.getElementById('vector-display').innerHTML = `
                 <h3 class="font-serif text-2xl font-semibold text-dark-walnut">${data.title}</h3>
-                <p class="text-xs sm:text-sm text-muted-text leading-relaxed">${data.desc}</p>
+                <p class="text-sm sm:text-base text-muted-text leading-relaxed">${data.desc}</p>
             `;
             document.getElementById('disbalance-text').innerText = data.disbalance;
         }
         setVector('want');
 
-        // Quiz State Logic
+        // Подбор формата
+        const TG = 'https://t.me/EktrMkh';
+        const WA = 'https://wa.me/79169007170';
+        const results = {
+            'Личное состояние': ['Индивидуальная работа', 'Психологическое консультирование. Если тема выгорания откликается, можно присоединиться и к группе.'],
+            'Работа и карьера': ['Индивидуальная работа', 'Психоаналитическое бизнес-консультирование: коучинг, карьерное консультирование, менторинг.'],
+            'Команда и компания': ['Для бизнеса: лидеры и команды', 'Работа с руководителем и собственником или с командой по заказу компании.']
+        };
         let quizAnswers = { step1: '', step2: '' };
 
         function selectQuizStep1(val) {
             quizAnswers.step1 = val;
             document.getElementById('quiz-step-1').classList.add('hidden');
+            document.getElementById('quiz-step-3').classList.add('hidden');
             document.getElementById('quiz-step-2').classList.remove('hidden');
             document.getElementById('quiz-progress').style.width = '66%';
         }
@@ -877,24 +777,24 @@
             document.getElementById('quiz-step-2').classList.add('hidden');
             document.getElementById('quiz-step-3').classList.remove('hidden');
             document.getElementById('quiz-progress').style.width = '100%';
-
-            // Generate Recommendation Link Text
-            const msg = encodeURIComponent(`Здравствуйте, Екатерина! Прошел тест на сайте. Запрос: ${quizAnswers.step1}, Срочность: ${quizAnswers.step2}. Хочу обсудить формат.`);
-            document.getElementById('quiz-tg-link').href = 'https://t.me/EktrMkh';
-            document.getElementById('quiz-wa-link').href = `https://wa.me/79169007170?text=${msg}`;
+            const r = results[quizAnswers.step1] || results['Личное состояние'];
+            document.getElementById('quiz-result-title').innerText = r[0];
+            document.getElementById('quiz-result-desc').innerText = r[1] + ' Начнём со знакомства до тридцати минут: обсудим ситуацию и выберем формат.';
+            const msg = encodeURIComponent(`Здравствуйте, Екатерина! Я с сайта. Тема: ${quizAnswers.step1}. ${quizAnswers.step2}. Хочу записаться на знакомство.`);
+            document.getElementById('quiz-tg-link').href = TG;
+            document.getElementById('quiz-wa-link').href = `${WA}?text=${msg}`;
         }
 
         function selectQuizDirection(dir) {
-            // Shortcut trigger from 3 directions block
             selectQuizStep1(dir);
         }
 
-        // Form Submission
+        // Заявка уходит Екатерине в WhatsApp
         function submitContactForm(e) {
             e.preventDefault();
             const v = id => document.getElementById(id).value.trim();
-            const text = encodeURIComponent(`Здравствуйте, Екатерина! Заявка с сайта.\nИмя: ${v('cf-name')}\nТелефон: ${v('cf-phone')}\nTelegram: ${v('cf-tg') || 'не указан'}\nЗапрос: ${v('cf-msg') || 'не указан'}`);
-            window.open(`https://wa.me/79169007170?text=${text}`, '_blank', 'noopener');
+            const text = encodeURIComponent(`Здравствуйте, Екатерина! Заявка с сайта.\nИмя: ${v('cf-name')}\nТелефон: ${v('cf-phone')}\nTelegram: ${v('cf-tg') || 'не указан'}\nИнтересует: ${v('cf-topic')}\nСитуация: ${v('cf-msg') || 'не указана'}`);
+            window.open(`${WA}?text=${text}`, '_blank', 'noopener');
             document.getElementById('contact-form').classList.add('hidden');
             document.getElementById('contact-success').classList.remove('hidden');
         }
