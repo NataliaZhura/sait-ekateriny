@@ -220,13 +220,12 @@
 
                         <!-- Main Image Wrapper -->
                         <div class="relative rounded-2xl overflow-hidden border border-ivory-border shadow-2xl bg-dark-walnut group">
-                            <img src="photo_2026-10-24_14-14-31.jpg" alt="Екатерина Михальченко — Портрет с бюстом" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700">
+                            <img src="photo_2026-10-24_14-14-36.jpg" alt="Екатерина Михальченко у колонны в библиотеке" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700">
 
                             <!-- Glass Badge floating overlay -->
                             <div class="absolute bottom-5 left-5 right-5 p-4 rounded-xl glass-panel border border-gold-lamp/40 shadow-xl animate-float">
-                                <div class="flex items-center justify-between mb-1">
-                                    <span class="font-serif italic text-dark-walnut text-base font-bold">Екатерина Михальченко</span>
-                                    <span class="text-[10px] bg-gold-lamp/20 text-dark-walnut px-2 py-0.5 rounded font-semibold uppercase tracking-wider">25+ лет</span>
+                                <div class="flex items-center mb-1">
+                                    <span class="text-[10px] bg-gold-lamp/20 text-dark-walnut px-2 py-0.5 rounded font-semibold uppercase tracking-wider">25+ лет в бизнесе</span>
                                 </div>
                                 <p class="text-xs text-muted-text italic">
                                     «Компания — это проекция бессознательного её лидера.»
@@ -401,7 +400,7 @@
                 <!-- Left Photo Container -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-2xl overflow-hidden border border-ivory-border shadow-2xl bg-dark-walnut">
-                        <img src="photo_2026-10-24_14-14-36.jpg" alt="Екатерина Михальченко у центральной колонны" class="w-full h-auto object-cover">
+                        <img src="photo_2026-10-24_14-14-31.jpg" alt="Екатерина Михальченко в библиотеке" class="w-full h-auto object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-dark-walnut/70 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6 right-6 text-ivory-bg space-y-1">
                             <span class="text-xs text-gold-lamp font-semibold uppercase tracking-wider">Системная опора</span>
@@ -746,23 +745,23 @@
                 <form id="contact-form" onsubmit="submitContactForm(event)" class="space-y-4 max-w-xl mx-auto">
                     <div>
                         <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2">Ваше имя</label>
-                        <input type="text" required placeholder="Александр" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
+                        <input id="cf-name" type="text" required placeholder="Александр" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2">Телефон / WhatsApp</label>
-                            <input type="tel" required placeholder="+7 (999) 000-00-00" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
+                            <input id="cf-phone" type="tel" required placeholder="+7 (999) 000-00-00" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
                         </div>
                         <div>
                             <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2">Telegram</label>
-                            <input type="text" placeholder="@username" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
+                            <input id="cf-tg" type="text" placeholder="@username" class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-xs font-semibold uppercase text-dark-walnut mb-2">Суть запроса</label>
-                        <textarea rows="3" placeholder="Кратко о задаче или ситуации..." class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm resize-none"></textarea>
+                        <textarea id="cf-msg" rows="3" placeholder="Кратко о задаче или ситуации..." class="w-full px-4 py-3 rounded-xl bg-ivory-card border border-ivory-border text-dark-walnut focus:outline-none focus:border-gold-lamp text-sm resize-none"></textarea>
                     </div>
 
                     <button type="submit" class="w-full py-4 rounded-xl bg-dark-walnut text-ivory-bg font-semibold uppercase tracking-wider text-xs hover:bg-gold-lamp hover:text-dark-walnut transition-all duration-300">
@@ -773,7 +772,7 @@
                 <div id="contact-success" class="hidden text-center py-8 space-y-3">
                     <div class="w-12 h-12 rounded-full bg-gold-lamp text-white flex items-center justify-center mx-auto text-xl">✓</div>
                     <h3 class="font-serif text-2xl text-dark-walnut">Заявка принята</h3>
-                    <p class="text-xs text-muted-text">Благодарю за доверие. Мы вскоре свяжемся с вами.</p>
+                    <p class="text-xs text-muted-text">Открылся WhatsApp с готовым сообщением. Нажмите «Отправить», чтобы Екатерина получила заявку. Если WhatsApp не открылся, напишите в <a href="https://t.me/EktrMkh" target="_blank" rel="noopener" class="underline">Telegram @EktrMkh</a>.</p>
                 </div>
 
             </div>
@@ -881,8 +880,8 @@
 
             // Generate Recommendation Link Text
             const msg = encodeURIComponent(`Здравствуйте, Екатерина! Прошел тест на сайте. Запрос: ${quizAnswers.step1}, Срочность: ${quizAnswers.step2}. Хочу обсудить формат.`);
-            document.getElementById('quiz-tg-link').href = `https://t.me/share/url?url=&text=${msg}`;
-            document.getElementById('quiz-wa-link').href = `https://wa.me/?text=${msg}`;
+            document.getElementById('quiz-tg-link').href = 'https://t.me/EktrMkh';
+            document.getElementById('quiz-wa-link').href = `https://wa.me/79169007170?text=${msg}`;
         }
 
         function selectQuizDirection(dir) {
@@ -893,6 +892,9 @@
         // Form Submission
         function submitContactForm(e) {
             e.preventDefault();
+            const v = id => document.getElementById(id).value.trim();
+            const text = encodeURIComponent(`Здравствуйте, Екатерина! Заявка с сайта.\nИмя: ${v('cf-name')}\nТелефон: ${v('cf-phone')}\nTelegram: ${v('cf-tg') || 'не указан'}\nЗапрос: ${v('cf-msg') || 'не указан'}`);
+            window.open(`https://wa.me/79169007170?text=${text}`, '_blank', 'noopener');
             document.getElementById('contact-form').classList.add('hidden');
             document.getElementById('contact-success').classList.remove('hidden');
         }
